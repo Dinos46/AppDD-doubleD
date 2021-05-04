@@ -1,13 +1,18 @@
+@import url('./helpers.css');
+
+/* ....................................BOOKS......................... */
+@import url('../../apps/Book/assets/css/book-details.css');
+@import url('../../apps/Book/assets/css/book-preview.css');
+@import url('../../apps/Book/assets/css/book-list.css');
+@import url('../../apps/Book/assets/css/book-review-add.css');
+
+
 body {
-    background-color: lightblue;
+    background-color: #fff;
+
 }
 
-.user-preview {
-    background-color: darkcyan;
-    padding: 5px;
-    width: 200px;
-    text-align: center;    
-}
-.user-preview button {
-    margin: 5px;
+img {
+    height: 100%;
+    width: 100%;
 }

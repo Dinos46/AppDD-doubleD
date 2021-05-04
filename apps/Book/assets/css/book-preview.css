@@ -1,0 +1,13 @@
+.book-show {
+    flex-direction: column;
+}
+
+.book-show .img-container {
+    width: 60%;
+    height: 60%;
+}
+
+.filter-grid-content {
+    flex-direction: column;
+}
+

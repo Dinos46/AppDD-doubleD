@@ -1,0 +1,7 @@
+.review-panel {
+    flex-direction: column;
+}
+
+.review-panel textarea {
+    resize: none;
+}
