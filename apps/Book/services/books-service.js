@@ -12,7 +12,7 @@ export const bookService = {
 
 const KEY = 'books';
 
-const gBooks;
+let gBooks;
 
 function saveReview(review, bookId){
   const bookIdx = gBooks.findIndex(book => book.id === bookId)
@@ -24,8 +24,9 @@ function saveReview(review, bookId){
 function loadBooksFromStorage(){
     let books = storageService.loadFromStorage(KEY)
     if (!books) books = originalBooks;
+    console.log(books);
     gBooks = books
-    storageService.saveToStorage(KEY, gBooks)
+    storage.saveToStorage(KEY, gBooks)
 }
 
 function query(filterBy) {
