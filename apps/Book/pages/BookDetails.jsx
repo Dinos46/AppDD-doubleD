@@ -16,11 +16,11 @@ export class BookDetails extends React.Component {
     this.loadBook();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
-      this.loadBook();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
+  //     this.loadBook();
+  //   }
+  // }
 
   loadBook = () => {
     const id = this.props.match.params.bookId;

@@ -1,6 +1,5 @@
-// import {util} from './util-service.js'
-import {storage} from '../../../services/storage-service.js'
-import {originalBooks} from './books.data.service.js'
+import { storage } from '../../../services/storage-service.js'
+import { originalBooks } from './books.data.service.js'
 
 export const bookService = {
   query,
@@ -10,25 +9,26 @@ export const bookService = {
   loadBooksFromStorage
 };
 
-const KEY = 'books';
+const KEY = 'booksDB';
 
-const gBooks;
+let gBooks;
 
-function saveReview(review, bookId){
+function saveReview(review, bookId) {
   const bookIdx = gBooks.findIndex(book => book.id === bookId)
-  if(!gBooks[bookIdx].reviews) gBooks[bookIdx].reviews = [];
-    gBooks[bookIdx].reviews.push(review)
-    storage.saveToStorage(KEY, gBooks);
+  if (!gBooks[bookIdx].reviews) gBooks[bookIdx].reviews = [];
+  gBooks[bookIdx].reviews.push(review)
+  storage.saveToStorage(KEY, gBooks);
 }
 
-function loadBooksFromStorage(){
-    let books = storageService.loadFromStorage(KEY)
-    if (!books) books = originalBooks;
-    gBooks = books
-    storageService.saveToStorage(KEY, gBooks)
+function loadBooksFromStorage() {
+  let books = storage.loadFromStorage(KEY)
+  if (!books) books = originalBooks;
+  gBooks = books
+  storage.saveToStorage(KEY, gBooks)
 }
 
 function query(filterBy) {
+  loadBooksFromStorage();
   if (filterBy) {
     const { name, price } = filterBy;
     const filterBooks = gBooks.filter((book) => {
