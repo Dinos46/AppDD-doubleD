@@ -1,17 +1,14 @@
-import {BookReviewPreview} from './BookReviewPreview.jsx' 
-
+import { BookReviewPreview } from './BookReviewPreview.jsx';
 
 export function BookReviewList(props) {
-  
-  console.log('in reviews' ,props.reviews)
-    if(!props.reviews) return <h3>no reviews...</h3>
-  
-  return (
-    <div className='user-review'>
-      <h3>coment</h3>
-     <BookReviewPreview />
+  const bookReviews = props.reviews;
+  if (!bookReviews) return <h3>no reviews...</h3>;
 
-    </div>
+  return (
+    
+    <section className="review-list flex">
+      <h2>reviews</h2>
+      {bookReviews.map((review ,idx)=><BookReviewPreview key={`review${idx}`} review={review} />)}
+    </section>
   );
 }
- 

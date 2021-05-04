@@ -9,6 +9,7 @@
 @import url('../../apps/Book/assets/css/book-preview.css');
 @import url('../../apps/Book/assets/css/book-list.css');
 @import url('../../apps/Book/assets/css/book-review-add.css');
+@import url('../../apps/Book/assets/css/book-review-list.css');
 
 * {
     margin: 0;

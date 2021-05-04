@@ -81,7 +81,6 @@ export class BookDetails extends React.Component {
 
   render() {
     const { book } = this.state;
-    console.log('inside render',book)
     if (!book) return <h2>loading</h2>;
     return (
       <section className='card grid'>
@@ -116,15 +115,14 @@ export class BookDetails extends React.Component {
         </div>
 
         <section className='reviews'>
-          coments
-          <BookReviewList reviews={book} />
+          <BookReviewList reviews={book.reviews} />
         </section>
 
         <section className='add-comment flex'>
-          <button onClick={this.onToggleReviewSection}>add</button>
-          {this.state.isCommentShown && (
+          {/* <button onClick={this.onToggleReviewSection}>add</button> */}
+    
             <ReviewAdd key={book.id} book={book}
-              toggleReviews={this.onToggleReviewSection}/>)}
+              toggleReviews={this.onToggleReviewSection}/>
         </section>
       </section>
     );

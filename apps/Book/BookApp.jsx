@@ -1,10 +1,7 @@
-const Router = ReactRouterDOM.HashRouter;
-const { Route, Switch} = ReactRouterDOM;
 
-import { bookService } from './services/books-service.js'
-import {BookDetails} from './pages/BookDetails.jsx'
-import { BookFilter } from './cmps/BookFilter.jsx'
-import { BookList } from './cmps/BookList.jsx'
+import { bookService } from './services/books-service.js';
+import { BookFilter } from './cmps/BookFilter.jsx';
+import { BookList } from './cmps/BookList.jsx';
 
 export class BookApp extends React.Component {
   state = {
@@ -35,18 +32,14 @@ export class BookApp extends React.Component {
     const { books } = this.state;
     if (!books) return <h1>rendering...</h1>;
     return (
-      <Router>
-        <Switch>
-          <Route component={BookDetails} path='/book/:bookId' />
-          
-        
-        <section className='filter-grid-content flex'>
-          <BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
-          <BookList books={books} />
-        </section>
-      
-        </Switch>
-      </Router>
+      <section className='book-app filter-grid-content flex'>
+        <h1>Book</h1>
+        <BookFilter
+          filterBy={this.state.filterBy}
+          onSetFilter={this.onSetFilter}
+        />
+        <BookList books={books} />
+      </section>
     );
   }
 }
