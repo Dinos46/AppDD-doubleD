@@ -6,8 +6,7 @@ import { BookList } from './cmps/BookList.jsx';
 export class BookApp extends React.Component {
   state = {
     books: null,
-    filterBy: null,
-    selectedBook: null,
+    filterBy: null
   };
 
   componentDidMount() {
@@ -18,10 +17,6 @@ export class BookApp extends React.Component {
     bookService.query(this.state.filterBy).then((books) => {
       this.setState({ books });
     });
-  };
-
-  setSelectedBook = (book) => {
-    this.setState({ selectedBook: book });
   };
 
   onSetFilter = (filterBy) => {
