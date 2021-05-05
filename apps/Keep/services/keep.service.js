@@ -1,5 +1,5 @@
-import {storage} from '../../../services/storage-service.js'
-import {util} from '../../../services/util-service.js'
+import { storage } from '../../../services/storage-service.js'
+import { util } from '../../../services/util-service.js'
 
 
 const KEY = 'notes';
@@ -38,31 +38,31 @@ const gNotes = [
 ];
 
 export const keepService = {
-    query,
-    getNoteById
+  query,
+  getNoteById
 }
 
 
 function query(filterBy) {
-    // loadBooksFromStorage();
-    // if (filterBy) {
-    //   const { name, price } = filterBy;
-    //   const filterBooks = gNotes.filter((notek) => {
-    //     return note.title.includes(name) || book.listPrice.amount < price;
-    //   });
-    //   return Promise.resolve(filterBooks);
-    // }
-    return Promise.resolve(gNotes);
-  }
+  // loadBooksFromStorage();
+  // if (filterBy) {
+  //   const { name, price } = filterBy;
+  //   const filterBooks = gNotes.filter((notek) => {
+  //     return note.title.includes(name) || book.listPrice.amount < price;
+  //   });
+  //   return Promise.resolve(filterBooks);
+  // }
+  return Promise.resolve(gNotes);
+}
 
 
-  function getNoteById(noteId) {
-    const note = gNotes.find(note => noteId === note.id)
-    return Promise.resolve(note);
-  }
+function getNoteById(noteId) {
+  const note = gNotes.find(note => noteId === note.id)
+  return Promise.resolve(note);
+}
 
 
-  function  loadNotesFromStorage(){
-    storage.loadFromStorage(KEY);
+function loadNotesFromStorage() {
+  storage.loadFromStorage(KEY);
 
-  }
+}
