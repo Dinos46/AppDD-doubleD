@@ -23,9 +23,9 @@ export class BookApp extends React.Component {
     });
   };
 
-  setSelectedBook = (book) => {
-    this.setState({ selectedBook: book });
-  };
+  // setSelectedBook = (book) => {
+  //   this.setState({ selectedBook: book });
+  // };
 
   onSetFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBooks);

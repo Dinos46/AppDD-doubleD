@@ -1,14 +1,18 @@
 @import url(./fonts.css);
-@import url('./helpers.css');
+@import url(./helpers.css);
 
 /* App Header */
 @import url(./AppHeader.css);
 
 /* ....................................BOOKS......................... */
-@import url('../../apps/Book/assets/css/book-details.css');
-@import url('../../apps/Book/assets/css/book-preview.css');
-@import url('../../apps/Book/assets/css/book-list.css');
-@import url('../../apps/Book/assets/css/book-review-add.css');
+@import url(../../apps/Book/assets/css/book-details.css);
+@import url(../../apps/Book/assets/css/book-preview.css);
+@import url(../../apps/Book/assets/css/book-list.css);
+@import url(../../apps/Book/assets/css/book-review-add.css);
+
+/* ........................MAILS........................... */
+@import url(../../apps/Email/assets/css/email-list.css);
+@import url(../../apps/Email/assets/css/email-preview.css);
 
 * {
     margin: 0;
@@ -23,4 +27,8 @@ html {
 a {
     text-decoration: none;
     cursor: pointer;
+}
+
+input {
+    outline: none;
 }

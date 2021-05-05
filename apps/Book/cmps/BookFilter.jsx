@@ -30,6 +30,6 @@ render() {
         <input type='range' name='price' id='price' min='0' max='200' onChange={this.handelChange}></input>
         <label htmlFor='price'> price range</label>
       </form>
-    );
+    )
   }
 }
