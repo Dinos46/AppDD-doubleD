@@ -5,6 +5,7 @@
 @import url(./AppHeader.css);
 
 /* ....................................BOOKS......................... */
+
 @import url(../../apps/Book/assets/css/book-details.css);
 @import url(../../apps/Book/assets/css/book-preview.css);
 @import url(../../apps/Book/assets/css/book-list.css);
@@ -15,8 +16,10 @@
 
 @import url(../../apps/Email/assets/css/email-list.css);
 @import url(../../apps/Email/assets/css/email-preview.css);
-
+@import url(../../apps/Email/assets/css/email-sidebar.css);
+@import url(../../apps/Email/assets/css/email-add.css);
 /* ..................................MISSKEEP........................................... */
+
 @import url(../../apps/Keep/assets/css/notes-list.css);
 @import url(../../apps/Keep/assets/css/notes-preview.css);
 
@@ -37,4 +40,16 @@ a {
 
 input {
     outline: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
 }

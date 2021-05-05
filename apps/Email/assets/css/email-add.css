@@ -1,0 +1,13 @@
+.emailadd-form-container {
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.emailadd-form-container > * {
+    padding: 1rem 1rem;
+}
+
+textarea {
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
