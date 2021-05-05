@@ -6,17 +6,13 @@ export class KeepEdit extends React.Component {
     note: null
   }
 
-
-
   componentDidMount() {
     const id = this.props.match.params.id;
     if (!id) return;
     keepService.getNoteById(id).then(note => {
       this.setState({ note }, () => { console.log(this.state) })
     })
-
   }
-
 
   handleChange = ({ target }) => {
     const field = target.name
