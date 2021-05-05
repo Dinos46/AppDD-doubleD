@@ -8,7 +8,6 @@ import { Home } from './pages/Home.jsx'
 import { BookApp } from './apps/Book/BookApp.jsx'
 import { BookDetails } from './apps/Book/pages/BookDetails.jsx'
 import { MissKeep } from './apps/Keep/MissKeep.jsx'
-import { KeepEdit } from './apps/Keep/pages/KeepEdit.jsx'
 import { EmailApp } from './apps/Email/EmailApp.jsx'
 
 export function App() {
@@ -23,7 +22,6 @@ export function App() {
           <Route component={BookDetails} path='/book/:bookId' />
           <Route component={BookApp} path='/book' />
           <Route component={EmailApp} path='/email' />
-          <Route component={KeepEdit} path='/keep/:id' />
           <Route component={MissKeep} path='/keep' />
           <Route component={About} path='/about' />
           <Route component={Home} path='/' />
