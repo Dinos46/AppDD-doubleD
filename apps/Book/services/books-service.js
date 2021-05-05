@@ -89,10 +89,6 @@ function getBookById(bookIdx) {
 //   _saveBookToLocalStorage();
 // }
 
-// function removeBook(bookId) {
-//   var bookIdx = gBooks.findIndex(function (book) {
-//       return bookId === book.id;
-//   })
 //   gBooks.splice(bookIdx, 1);
 //   _saveBookToLocalStorage();
 // }

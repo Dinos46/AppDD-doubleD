@@ -27,6 +27,7 @@ export class _AppHeader extends React.Component {
                             <li><NavLink>ABOUT</NavLink></li>
                             <li><NavLink to="/book">BOOKSTORE</NavLink></li>
                             <li><NavLink to="/keep">MISSKEEP</NavLink></li>
+                            <li><NavLink to="/email">EMAIL</NavLink></li>
                         </ul>
                     </div>
                     <img className={`fa open ${this.state.activeClass}`} onClick={this.activeMenu} src="../assets/img/bars-solid.svg"/>

@@ -10,17 +10,17 @@ export class BookFilter extends React.Component {
     const val = ev.target.value;
     const field = ev.target.name;
     if (field === 'name') this.setState({ filterBy: { name: val } }, () => {
-      this.props.onSetFilter(this.state.filterBy);
+      this.props.onSetFilter(this.state.filterBy)
     })
 
     if (field === 'price') this.setState({ filterBy: { price: +val } }, () => {
-      this.props.onSetFilter(this.state.filterBy);
+      this.props.onSetFilter(this.state.filterBy)
     })
   };
 
   onFilterBy = (ev) => {
     ev.preventDefault();
-    this.props.onSetFilter(this.state.filterBy);
+    this.props.onSetFilter(this.state.filterBy)
   };
 
   render() {

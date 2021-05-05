@@ -19,9 +19,12 @@
 @import url(../../apps/Email/assets/css/email-sidebar.css);
 @import url(../../apps/Email/assets/css/email-add.css);
 /* ..................................MISSKEEP........................................... */
-
+@import url(../../apps/Keep/assets/css/miss-keep.css);
 @import url(../../apps/Keep/assets/css/notes-list.css);
 @import url(../../apps/Keep/assets/css/notes-preview.css);
+@import url(../../apps/Keep/assets/css/notes-todo.css);
+@import url(../../apps/Keep/assets/css/notes-img.css);
+@import url(../../apps/Keep/assets/css/notes-txt.css);
 
 * {
     margin: 0;

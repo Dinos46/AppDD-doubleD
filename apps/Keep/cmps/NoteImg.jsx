@@ -1,5 +1,6 @@
 const { Link } = ReactRouterDOM;
 
+
 export class NoteImg extends React.Component {
     state = {
         id: null,
@@ -20,19 +21,18 @@ export class NoteImg extends React.Component {
 
     setNoteInfo = ({info}) =>{
         this.setState({info: {...info}},()=>{
-            // console.log(this.state)
+        
         })
     }
 
     setNoteStyle = ({style}) =>{
         this.setState({style: {...style}},()=>{
-            // console.log(this.state)
+            
         })
     }
 
     setNoteId = ({id}) =>{
         this.setState({id}, ()=>{
-            // console.log(this.state)
         })
     }
     
@@ -42,10 +42,13 @@ export class NoteImg extends React.Component {
         const {style, info} = this.state;
         return (
 
-            <div className="img-note">
+            <div className="img-note flex">
                 <h3>{info.title}</h3>
+                <div className="img-container">
                 {<img src={info.url} />}
-                <Link to={`/keep/${this.state.id}`}>edit</Link>
+                </div>
+            
+                
             </div>
         )
     

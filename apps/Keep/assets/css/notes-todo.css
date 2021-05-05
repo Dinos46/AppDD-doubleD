@@ -1,0 +1,7 @@
+.todo-note {
+    flex-direction: column;
+}
+
+.todo-note ul {
+    list-style-type: none;
+}
