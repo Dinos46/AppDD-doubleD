@@ -1,5 +1,5 @@
 import {keepService} from './services/keep.service.js'
-import {NotesFilter} from './cmps/NotesFilter.jsx'
+// import {NotesFilter} from './cmps/NotesFilter.jsx'
 import {NotesList} from './cmps/NotesList.jsx'
 
 
@@ -17,7 +17,7 @@ export class MissKeep extends React.Component {
 loadNotes = ()=>{
     keepService.query().then(notes => {
         this.setState({notes},()=>{
-            console.log(this.state.notes)
+            
         })
     })
 }
@@ -29,7 +29,7 @@ loadNotes = ()=>{
         return (
             <section className="miss-keep">
             <h2>miss keep</h2>
-            <NotesFilter />
+            {/* <NotesFilter /> */}
             <NotesList notes={notes}/>
             </section>
         )

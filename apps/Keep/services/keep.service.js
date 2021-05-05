@@ -1,10 +1,12 @@
 import {storage} from '../../../services/storage-service.js'
+import {util} from '../../../services/util-service.js'
 
 
 const KEY = 'notes';
 
 const gNotes = [
   {
+    id: util.makeId(4),
     type: 'NoteText',
     isPinned: true,
     info: {
@@ -12,9 +14,10 @@ const gNotes = [
     },
   },
   {
+    id: util.makeId(4),
     type: 'NoteImg',
     info: {
-      url: 'http://some-img/me',
+      url: 'https://picsum.photos/200/300',
       title: 'Me playing Mi',
     },
     style: {
@@ -22,6 +25,7 @@ const gNotes = [
     },
   },
   {
+    id: util.makeId(4),
     type: 'NoteTodos',
     info: {
       label: 'How was it:',
@@ -34,7 +38,8 @@ const gNotes = [
 ];
 
 export const keepService = {
-    query
+    query,
+    getNoteById
 }
 
 
@@ -49,6 +54,13 @@ function query(filterBy) {
     // }
     return Promise.resolve(gNotes);
   }
+
+
+  function getNoteById(noteId) {
+    const note = gNotes.find(note => noteId === note.id)
+    return Promise.resolve(note);
+  }
+
 
   function  loadNotesFromStorage(){
     storage.loadFromStorage(KEY);

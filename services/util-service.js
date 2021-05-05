@@ -1,4 +1,6 @@
-
+export const util = {
+    makeId
+}
 
 function makeId(length = 6) {
     var txt = '';

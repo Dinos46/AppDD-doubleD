@@ -11,6 +11,10 @@
 @import url('../../apps/Book/assets/css/book-review-add.css');
 @import url('../../apps/Book/assets/css/book-review-list.css');
 
+/* ..................................MISSKEEP........................................... */
+@import url('../../apps/Keep/assets/css/notes-list.css');
+@import url('../../apps/Keep/assets/css/notes-preview.css');
+
 * {
     margin: 0;
     padding: 0;
