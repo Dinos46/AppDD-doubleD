@@ -9,10 +9,16 @@
 @import url(../../apps/Book/assets/css/book-preview.css);
 @import url(../../apps/Book/assets/css/book-list.css);
 @import url(../../apps/Book/assets/css/book-review-add.css);
+@import url(../../apps/Book/assets/css/book-review-list.css);
 
-/* ........................MAILS........................... */
+/* .....................EMAIL.................................. */
+
 @import url(../../apps/Email/assets/css/email-list.css);
 @import url(../../apps/Email/assets/css/email-preview.css);
+
+/* ..................................MISSKEEP........................................... */
+@import url(../../apps/Keep/assets/css/notes-list.css);
+@import url(../../apps/Keep/assets/css/notes-preview.css);
 
 * {
     margin: 0;

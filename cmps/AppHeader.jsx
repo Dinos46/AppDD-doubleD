@@ -23,9 +23,10 @@ export class _AppHeader extends React.Component {
                     <div className={`nav-links ${this.state.activeClass}`}>
                         <img onClick={this.disableMenu} className="fa close" src="../assets/img/times-solid.svg"/>
                         <ul className="clean-list">
-                            <li><NavLink>HOME</NavLink></li>
-                            <li><NavLink>BOOKSTORE</NavLink></li>
+                            <li><NavLink to="/">HOME</NavLink></li>
                             <li><NavLink>ABOUT</NavLink></li>
+                            <li><NavLink to="/book">BOOKSTORE</NavLink></li>
+                            <li><NavLink to="/keep">MISSKEEP</NavLink></li>
                         </ul>
                     </div>
                     <img className={`fa open ${this.state.activeClass}`} onClick={this.activeMenu} src="../assets/img/bars-solid.svg"/>

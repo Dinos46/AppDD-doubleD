@@ -5,3 +5,20 @@
 .review-panel textarea {
     resize: none;
 }
+
+.star-rating input[name="rating"]{
+    display: none;
+}
+
+.fa-star {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.grey {
+    color: grey;
+}
+
+.yellow {
+    color: #e7e745;
+}
