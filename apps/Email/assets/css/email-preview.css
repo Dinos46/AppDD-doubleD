@@ -1,0 +1,31 @@
+.email-preview {
+    background-color: rgb(199, 199, 199);
+    display: flex;
+    justify-content: space-between;
+    font-size: .875rem;
+    font-weight: bold;
+}
+
+.email-preview.read {
+    font-weight: lighter;
+}
+
+.email-preview>* {
+    padding: 1% 1%;
+}
+
+.email-preview-name {
+    min-width: 9rem;
+    background-color: green;
+}
+
+.email-preview-body {
+    display: flex;
+    justify-content: start;
+    font-size: .75rem;
+}
+
+.email-preview-body>*:not(:first-child) {
+    color: gray;
+    margin: 0 .5rem;
+}

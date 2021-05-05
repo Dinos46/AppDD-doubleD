@@ -34,7 +34,7 @@ export class _AppHeader extends React.Component {
                 <div className="text-box">
                     <h1>World's greatest junior dev's.</h1>
                     <p>Amaizing apps cover for classic bookstore, sticky notes and gmail.<br/>
-                    Using the spectacular front-end development framework. Reactjs.</p>
+                    Using the spectacular front-end development framework. ReactJs.</p>
                     <NavLink className="hero-btn">Visit us to know more.</NavLink>
                 </div>
             </React.Fragment>
