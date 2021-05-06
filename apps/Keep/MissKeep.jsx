@@ -1,7 +1,7 @@
 import { keepService } from './services/keep.service.js'
-import {NotesFilter} from './cmps/NotesFilter.jsx'
+import { NotesFilter } from './cmps/NotesFilter.jsx'
 import { NotesList } from './cmps/NotesList.jsx'
-import {AddNote} from './cmps/AddNote.jsx'
+import { AddNote } from './cmps/AddNote.jsx'
 
 
 export class MissKeep extends React.Component {
@@ -22,9 +22,9 @@ export class MissKeep extends React.Component {
         })
     }
 
-    
-    onPinNote=(noteId)=>{
-        keepService.togglePinedNote(noteId).then(()=>{
+
+    onPinNote = (noteId) => {
+        keepService.togglePinedNote(noteId).then(() => {
             this.loadNotes()
         })
     }
@@ -36,17 +36,17 @@ export class MissKeep extends React.Component {
     //         })
     // }
 
-    onSetFilter = (filterBy)=>{
+    onSetFilter = (filterBy) => {
 
     }
 
     onRemoveNote = (noteId) => {
         console.log('REMOVE', noteId)
-        keepService.removeNote(noteId).then(()=>{
-          this.loadNotes()
+        keepService.removeNote(noteId).then(() => {
+            this.loadNotes()
         })
-      }
-       
+    }
+
     render() {
         console.log()
         const { notes } = this.state;
@@ -55,9 +55,9 @@ export class MissKeep extends React.Component {
         return (
             <section className="miss-keep flex">
                 <h2>miss keep</h2>
-                <NotesFilter onSetFilter={this.onSetFilter}/>
-                <AddNote onAddNote={this.onAddNote}/>
-                <NotesList notes={notes} onEditNote={this.onEditNote}  onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote}/> 
+                <NotesFilter onSetFilter={this.onSetFilter} />
+                <AddNote onAddNote={this.onAddNote} />
+                <NotesList notes={notes} onEditNote={this.onEditNote} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
             </section>
         )
     }

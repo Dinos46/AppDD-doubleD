@@ -16,9 +16,9 @@ export class EmailAdd extends React.Component {
 
     }
 
-    onSubmit = (ev) => {
+    onAddEmail = (ev) => {
         ev.preventDefault()
-        console.log('hi')
+        this.props.onAddEmail(this.state.newEmail)
 
     }
 
@@ -31,10 +31,10 @@ export class EmailAdd extends React.Component {
     }
 
     render() {
-        console.log(this.state.newEmail);
+        
         return (
 
-            <form className="emailadd-form-container flex" onSubmit={this.onSubmit}>
+            <form className="emailadd-form-container flex" onSubmit={this.onAddEmail}>
                 <input type="text" name="to" placeholder="To:" onChange={this.handleChange}/>
                 <input type="text" name="cc" 
 
@@ -47,7 +47,7 @@ export class EmailAdd extends React.Component {
 
                 <input type="text" name="subject" placeholder="Subject:" onChange={this.handleChange} />
                 <textarea type="text" name="textarea" placeholder="Your text:" onChange={this.handleChange}/>
-                <button>Submit</button>
+                <button>Sent</button>
             </form>
         )
     }

@@ -4,6 +4,7 @@ import { EmailList } from './cmps/EmailList.jsx'
 import { EmailFilter } from './cmps/EmailFilter.jsx'
 import { EmailSidebarFilter } from './cmps/EmailSidebarFilter.jsx'
 import { EmailAdd } from './cmps/EmailAdd.jsx'
+import { EmailPreview } from './cmps/EmailPreview.jsx'
 
 export class EmailApp extends React.Component {
 
@@ -28,9 +29,7 @@ export class EmailApp extends React.Component {
     }
 
     onLoadEmailsSecond = () => {
-        emailService.secondQuery(this.state.filterBy).then(emails => {
-            this.setState({ emails })
-        })
+        emailService.secondQuery(this.state.filterBy).then(emails => this.setState({ emails }))
     }
 
     onSetFilter = (filterBy) => {
@@ -41,17 +40,39 @@ export class EmailApp extends React.Component {
         this.setState({ sidebarFilterBy }, this.loadEmails)
     }
 
-    onEditEmail = (emailId) => {
+    onAddEmail = (email) => {
+        emailService.addEmail(email)
+        emailService.saveEmailsToStorage()
+        this.loadEmails()
+    }
+
+    onRemoveEmail = (emailId) => {
         emailService.getEmailIdx(emailId).then(emailIdx => {
-            emailService.editEmailToggle(emailIdx)
+            emailService.removeEmail(emailIdx)
+            emailService.saveEmailsToStorage()
+        })
+        this.loadEmails()
+    }
+
+    onOpenEmail = (emailId) => {
+        emailService.getEmailIdx(emailId).then(emailIdx => {
+            emailService.openEmail(emailIdx)
+            emailService.saveEmailsToStorage()
+        })
+        this.loadEmails()
+    }
+
+    onToggleReadEmail = (emailId) => {
+        emailService.getEmailIdx(emailId).then(emailIdx => {
+            emailService.toggleReadEmail(emailIdx)
             emailService.saveEmailsToStorage()
         })
         this.loadEmails()
     }
 
     render() {
-        const { emails } = this.state
-        if (!emails) return <h1 className="reloading"></h1>
+        if (!this.state.emails) return <h1 className="reloading"></h1>
+
         return (
 
             <section className="emailapp-container">
@@ -59,8 +80,11 @@ export class EmailApp extends React.Component {
                 <button>Compose</button>
                 <EmailSidebarFilter onSidebarFilter={this.onSidebarFilter} />
                 <EmailFilter onSetFilter={this.onSetFilter} />
-                <EmailList emails={emails} onEditEmail={this.onEditEmail} />
-                <EmailAdd />
+
+                <EmailList emails={this.state.emails} onToggleReadEmail={this.onToggleReadEmail}
+                    onRemoveEmail={this.onRemoveEmail} onOpenEmail={this.onOpenEmail} />
+
+                <EmailAdd onAddEmail={this.onAddEmail} />
             </section>
         )
     }
