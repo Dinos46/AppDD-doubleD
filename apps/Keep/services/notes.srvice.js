@@ -9,7 +9,7 @@ export const originalNotes = [
         txt: 'Fullstack Me Baby!',
       },
     },
-    {
+    { 
       id: util.makeId(4),
       type: 'NoteImg',
       isPinned: false,

@@ -10,12 +10,12 @@ export class KeepEditPanel extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
   }
 
   render() {
     const {note, onEditNote, onPinNote, onRemoveNote}= this.props
-    console.log('TTTTTT',this.state.note)
+    // console.log('TTTTTT',this.state.note)
     return (
       <div className="note-editor flex">
           <button>6</button>

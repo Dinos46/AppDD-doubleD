@@ -30,25 +30,12 @@ export class ReviewAdd extends React.Component {
     return (
       <form className='review-panel flex' onSubmit={this.onSubmitReview}>
         <h3>leave a comment</h3>
-        <input
-          type='text'
-          name='userName'
-          value={userName}
-          placeholder='name'
-          onChange={this.handleChange}
-          required
-        />
-
+        <input type='text' name='userName' value={userName}
+          placeholder='name' onChange={this.handleChange} required />
         <label htmlFor='date-picker'>read at</label>
-        <input
-          type='date'
-          id='date-picker'
-          name='readDate'
-          value={readDate}
-          onChange={this.handleChange}
-          required
-        />
-
+        <input type='date' id='date-picker' name='readDate'
+          value={readDate} onChange={this.handleChange} required />
+          
         <div className='star-rating flex'>
           {[...Array(5)].map((star, idx) => {
             const ratingVal = idx + 1;
