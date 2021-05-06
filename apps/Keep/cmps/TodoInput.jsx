@@ -13,12 +13,12 @@ export class TodoInput extends React.Component {
 
     handleChange = ({ target }) => {
         this.setState({info:{label: 'ggg'}})
-        // const field = target.name
-        // const value = target.type === 'number' ? +target.value : target.value
-        // const labelVal = target.name === 'label' ? target.value : ''
-        // this.setState((prevState) => ({
-        //     ...prevState, info: {label: 'gggg', [field]: [1,2,2,3]}
-        // }));
+        const field = target.name
+        const value = target.value
+        const labelVal = target.name === 'label' ? target.value : ''
+        this.setState((prevState) => ({
+            ...prevState, info: {[field]: value, todos: [1,2,2,3]}
+        }));
     };
     
     onAddNote=(ev)=>{
@@ -32,8 +32,8 @@ export class TodoInput extends React.Component {
         console.log(this.state)
         return (
             <form onSubmit={this.onAddNote}>
-                <input name="todos" onChange={this.handleChange} type="text" placeholder="enter todo" />
-                <input name="label" onChange={this.handleChange} type="text" placeholder="your title" />
+                {/* <input name="todos" onChange={this.handleChange} type="text" placeholder="enter todo" /> */}
+                <input name="lable" onChange={this.handleChange} type="text" placeholder="your title" />
                 <button>Add todo</button>
             </form>
         )

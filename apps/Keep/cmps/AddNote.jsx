@@ -10,7 +10,7 @@ export function AddNote() {
             <nav >
                 <NavLink to="/keep/add-text">text</NavLink>
                 <NavLink to="/keep/add-img">img</NavLink>
-                {/* <NavLink to="/keep/add-todo">todo</NavLink> */}
+                <NavLink to="/keep/add-todo">todo</NavLink>
             </nav>
 
             <Switch>

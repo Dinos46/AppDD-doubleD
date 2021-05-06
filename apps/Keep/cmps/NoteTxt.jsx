@@ -1,5 +1,3 @@
-const { Link } = ReactRouterDOM;
-
 
 export class NoteTxt extends React.Component {
     state = {
@@ -24,17 +22,15 @@ export class NoteTxt extends React.Component {
         this.setState({ isPinned })
     }
 
-    setNoteInfo = ({info}) => {
+    setNoteInfo = ({ info }) => {
         this.setState({ info: { ...info } })
     }
 
     render() {
         const { info } = this.state
-        const {onEditNote, onPinNote, onRemoveNote}= this.props
         return (
             <div className="txt-note flex">
                 <h2>{info.txt}</h2>
-                
             </div>
         )
     }

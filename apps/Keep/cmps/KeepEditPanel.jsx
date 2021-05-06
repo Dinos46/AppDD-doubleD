@@ -1,6 +1,4 @@
-import { keepService } from '../services/keep.service.js'
-
-
+const { Link } = ReactRouterDOM
 
 export class KeepEditPanel extends React.Component {
 
@@ -9,19 +7,15 @@ export class KeepEditPanel extends React.Component {
     isPinned: false
   }
 
-  componentDidMount() {
-    // console.log(this.props)
-  }
-
   render() {
-    const {note, onEditNote, onPinNote, onRemoveNote}= this.props
-    // console.log('TTTTTT',this.state.note)
+    const { note, onPinNote, onRemoveNote } = this.props
     return (
       <div className="note-editor flex">
-          <button>6</button>
-          {/* <button onEditNote={()=>{onEditNote()}}>edit</button> */}
-          {/* <button onClick={()=>{onPinNote(note.id, note)}}>pin</button> */}
-          <button type="button" onClick={()=>{onRemoveNote(note.id)}}>delete</button>
+        <Link to={`/keep/edit/${note.id}`}>
+          <button type="button">edit</button>
+        </Link>
+        <button onClick={() => { onPinNote(note.id, note) }}>pin</button>
+        <button type="button" onClick={() => { onRemoveNote(note.id) }}>delete</button>
       </div>
     )
   }

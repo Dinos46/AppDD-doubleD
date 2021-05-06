@@ -16,7 +16,7 @@ export class TxtInput extends React.Component {
         const field = target.name;
         const value = target.value;
         this.setState((prevState) => ({
-            ...prevState, info: { [field]: value}
+            ...prevState, info: { [field]: value }
         }));
     };
 
@@ -27,11 +27,16 @@ export class TxtInput extends React.Component {
         })
     }
 
+    goBack = () => {
+        this.props.history.push('/keep')
+    }
+
     render() {
         return (
             <form onSubmit={this.onAddNote}>
-            <input name="txt" onChange={this.handleChange} type="text" placeholder="enter text" />
-            <button>Add</button>
+                <input name="txt" onChange={this.handleChange} type="text" placeholder="enter text" />
+                <button>Add</button>
+                <button onClick={this.goBack} name="close">close</button>
             </form>
         )
     }

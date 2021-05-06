@@ -5,35 +5,30 @@ export class NotesFilter extends React.Component {
         },
     };
 
-    componentDidMounr() {
-
-    }
-
     handleChange = ({ target }) => {
-        console.log(target)
-        // const field = target.name
-        // const value = target.type === 'number' ? +target.value : target.value
-        // this.setState(prevState => ({
-        //     car: {
-        //         ...prevState.car,
-        //         [field]: value
-        //     }
-        // }))
+        const field = target.name
+        const value = target.value.toUpperCase()
+        console.log('OOOOOO', value)
+        this.setState(prevState => ({
+            filterBy: {
+                ...prevState.filterBy,
+                [field]: 'NOTE' + value
+            }
+        }))
     }
 
     onFilter = (ev) => {
+        console.log('OOOOOO', this.state.filterBy)
         ev.preventDefault()
         this.props.onSetFilter(this.state.filterBy)
-      }
+    }
 
     render() {
         return (
-            <section className="keep-filter flex">
-                <h2>filter</h2>
-                <form>
-                    <input placeholder="search note type" type="text" name="type" onChange={this.handleChange}/>
-                </form>
-            </section>
+            <form onSubmit={this.onFilter}>
+                <input placeholder="search note type" type="text" name="type" onChange={this.handleChange} />
+                <button> search</button>
+            </form>
         )
     }
 }

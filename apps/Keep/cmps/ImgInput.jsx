@@ -29,6 +29,9 @@ export class ImgInput extends React.Component {
         })
     }
 
+    goBack = () => {
+        this.props.history.push('/keep')
+    }
 
     render() {
         console.log('RENDER',this.state)
@@ -36,7 +39,8 @@ export class ImgInput extends React.Component {
             <form className="add-note-modal" onSubmit={this.onAddNote}>
                 {/* <input name="title" onChange={this.handleChange} type="text" placeholder="your title" /> */}
                 <input name="url" onChange={this.handleChange} type="text" placeholder="enter url" />
-                <button>Add</button>
+                <button name="add">Add</button>
+                <button onClick={this.goBack} name="close">close</button>
             </form>
         )
     }

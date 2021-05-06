@@ -1,3 +1,19 @@
 .miss-keep {
     flex-direction: column;
 }
+
+.keep-header {
+    box-shadow: -11px 3px 10px 3px rgb(141 141 141);
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+}
+
+.keep-header h2 {
+    align-self: center;
+    padding: 1rem; 
+}
+
+

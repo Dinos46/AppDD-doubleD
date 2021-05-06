@@ -11,53 +11,42 @@ export class MissKeep extends React.Component {
         filterBy: null
     }
 
-
     componentDidMount() {
         this.loadNotes()
     }
 
     loadNotes = () => {
-        keepService.query().then(notes => {
-            this.setState({ notes })
-        })
+        keepService.query(this.state.filterBy).then(notes => this.setState({ notes }))
     }
 
-
-    onPinNote = (noteId) => {
-        keepService.togglePinedNote(noteId).then(() => {
-            this.loadNotes()
-        })
+    onPinNote = (noteId, note) => {
+        keepService.togglePinedNote(noteId, note).then(() => this.loadNotes())
     }
 
-    // onEditNote=()=>{
-    //     console.log('ONEDIT')
-    //         noteService.editNote(note, nodeId).then(()=>{
-    //             this.loadNotes();
-    //         })
-    // }
+    onEditNote = (noteId) => {
+        keepService.editNote(noteId)
+    }
 
     onSetFilter = (filterBy) => {
-
+        this.setState({ filterBy }, this.loadNotes)
     }
 
     onRemoveNote = (noteId) => {
-        console.log('REMOVE', noteId)
-        keepService.removeNote(noteId).then(() => {
-            this.loadNotes()
-        })
+        keepService.removeNote(noteId).then(() => this.loadNotes())
     }
 
     render() {
-        console.log()
-        const { notes } = this.state;
+        const { notes } = this.state
         if (!notes) return <h2>no todos.....</h2>
 
         return (
             <section className="miss-keep flex">
-                <h2>miss keep</h2>
-                <NotesFilter onSetFilter={this.onSetFilter} />
-                <AddNote onAddNote={this.onAddNote} />
-                <NotesList notes={notes} onEditNote={this.onEditNote} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
+                <div className="keep-header flex">
+                    <h2>miss keep</h2>
+                    <NotesFilter onSetFilter={this.onSetFilter} />
+                    <AddNote onAddNote={this.onAddNote} />
+                </div>
+                <NotesList notes={notes} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
             </section>
         )
     }
