@@ -1,5 +1,5 @@
 .email-preview {
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(160, 160, 160);
     display: flex;
     justify-content: space-between;
     font-size: .875rem;
@@ -8,6 +8,7 @@
 
 .email-preview.read {
     font-weight: lighter;
+    background-color: rgb(199, 199, 199);
 }
 
 .email-preview>* {

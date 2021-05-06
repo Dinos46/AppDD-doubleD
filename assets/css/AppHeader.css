@@ -1,7 +1,7 @@
 header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.192), rgba(97, 76, 114, 0.301)), url(../img/hero.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.200), rgba(97, 76, 114, 0.300)), url(../img/hero.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
