@@ -9,7 +9,7 @@ export const NotesDynamicCmp = (props) => {
   switch (note.type) {
     case 'NoteText':
       return (
-        <div className="card">
+        <div className="note flex">
           <NoteTxt note={note} />
           <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
@@ -17,7 +17,7 @@ export const NotesDynamicCmp = (props) => {
 
     case 'NoteTodos':
       return (
-        <div className="card">
+        <div className="note flex">
           <NoteTodo note={note} />
           <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
@@ -25,7 +25,7 @@ export const NotesDynamicCmp = (props) => {
 
     case 'NoteImg':
       return (
-        <div className="card">
+        <div className="note flex">
           <NoteImg note={note} />
           <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>

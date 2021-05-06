@@ -9,10 +9,8 @@ export class KeepEditPanel extends React.Component {
 
   render() {
     const { note, onPinNote, onRemoveNote } = this.props
-
     return (
       <div className="note-editor flex">
-        <button>6</button>
         <Link to={`/keep/edit/${note.id}`}>
           <button type="button">edit</button>
         </Link>

@@ -1,5 +1,3 @@
-const { Link } = ReactRouterDOM;
-
 
 export class NoteTodo extends React.Component {
   state = {
@@ -20,7 +18,7 @@ export class NoteTodo extends React.Component {
   };
 
   setNoteInfo = ({ info }) => {
-    this.setState({ info: { ...info }})
+    this.setState({ info: { ...info } })
   }
 
   render() {

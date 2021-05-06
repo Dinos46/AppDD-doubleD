@@ -16,19 +16,18 @@ export const keepService = {
   editNote
 }
 
-
 function query(filterBy) {
+  console.log('SERVICE',filterBy)
   loadNotesFromStorage()
-  // if (filterBy) {
-  //   const { name, price } = filterBy;
-  //   const filterBooks = gNotes.filter((notek) => {
-  //     return note.title.includes(name) || book.listPrice.amount < price;
-  //   });
-  //   return Promise.resolve(filterBooks);
-  // }
-  return Promise.resolve(gNotes);
+  if (filterBy) {
+    const { type } = filterBy
+    const filterNotes = gNotes.filter((note) => {
+      return note.type.toUpperCase().includes(type)
+    })
+    return Promise.resolve(filterNotes)
+  }
+  return Promise.resolve(gNotes)
 }
-
 
 function removeNote(noteId) {
   const noteIdx = gNotes.findIndex(note => noteId === note.id)
@@ -71,8 +70,14 @@ function editNote(noteToUpdate) {
 
 function togglePinedNote(noteId, note) {
   const noteIdx = gNotes.findIndex(note => noteId === note.id)
+  // const curNoteIdx = gNotes.findIndex(note => noteId === note.id)
+  gNotes.splice(noteIdx, 1)
+  gNotes.unshift(note)
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
-  if (gNotes[noteIdx].isPinned) gNotes.unshift(note)
+  // if(gNotes[noteIdx].isPinned){
+  //   gNotes.splice(curNoteIdx, 1)
+  //   gNotes.push(note)
+  // }
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
 }
