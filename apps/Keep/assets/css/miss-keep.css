@@ -1,3 +1,11 @@
 .miss-keep {
     flex-direction: column;
+    /* padding: 1rem; */
 }
+
+.miss-keep h2 {
+    align-self: center;
+    padding: 1rem;
+}
+
+

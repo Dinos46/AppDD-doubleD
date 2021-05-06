@@ -12,7 +12,8 @@ export const keepService = {
   getNoteById,
   removeNote,
   togglePinedNote,
-  addNote
+  addNote,
+  editNote
 }
 
 
@@ -38,14 +39,34 @@ function removeNote(noteId) {
 
 function addNote(note) {
   note.id = util.makeId(4)
-  console.log('SER', note)
+  console.log('SERVICE', note)
   gNotes.push(note)
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
 }
 
-function editNote(note) {
-  console.log('Service', note)
+function editNote(noteToUpdate) {
+  let val
+  console.log('Service edit', noteToUpdate)
+  const noteIdx = gNotes.findIndex(note => note.id === noteToUpdate.id)
+  switch (noteToUpdate.type) {
+    case 'NoteTodos':
+      val = noteToUpdate.label
+      noteToUpdate.info.label = val
+
+      break
+    case 'NoteImg':
+      val = noteToUpdate.title
+      noteToUpdate.info.title = val
+      break
+    case 'NoteText':
+      val = noteToUpdate.txt
+      noteToUpdate.info.txt = val
+      break
+  }
+  gNotes.splice(noteIdx, 1, noteToUpdate)
+  storage.saveToStorage(KEY, gNotes)
+  return Promise.resolve()
 }
 
 function togglePinedNote(noteId, note) {
@@ -56,23 +77,14 @@ function togglePinedNote(noteId, note) {
   return Promise.resolve()
 }
 
-
 function _updateNote(noteToUpdate) {
   var noteIdx = gNotes.findIndex(note => {
     return note.id === noteToUpdate.id;
   })
   gNotes.splice(noteIdx, 1, noteToUpdate)
-  // _saveNotesToStorage();
+  storage.saveToStorage(KEY, gNotes)
   return Promise.resolve(noteToUpdate)
 }
-
-// function _addNote(noteToAdd) {
-//   const note = _createCar(carToAdd.vendor, carToAdd.speed)
-//   gCars.unshift(noteToAdd)
-//   _saveNoteToStorage();
-//   return Promise.resolve(car)
-// }
-
 
 function getNoteById(noteId) {
   const note = gNotes.find(note => {
@@ -80,7 +92,6 @@ function getNoteById(noteId) {
   })
   return Promise.resolve(note);
 }
-
 
 function loadNotesFromStorage() {
   let notes = storage.loadFromStorage(KEY)

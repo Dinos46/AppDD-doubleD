@@ -4,22 +4,22 @@ import { NoteImg } from './NoteImg.jsx';
 import { KeepEditPanel } from './KeepEditPanel.jsx'
 
 export const NotesDynamicCmp = (props) => {
-  const { note, onEditNote, onPinNote, onRemoveNote } = props
+  const { note, onPinNote, onRemoveNote } = props
 
   switch (note.type) {
     case 'NoteText':
       return (
         <div className="card">
           <NoteTxt note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onEditNote={onEditNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
 
     case 'NoteTodos':
       return (
         <div className="card">
-          <NoteTodo note={note}/>
-          <KeepEditPanel note={note} onPinNote={onPinNote} onEditNote={onEditNote} onRemoveNote={onRemoveNote} />
+          <NoteTodo note={note} />
+          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
 
@@ -27,7 +27,7 @@ export const NotesDynamicCmp = (props) => {
       return (
         <div className="card">
           <NoteImg note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onEditNote={onEditNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
 

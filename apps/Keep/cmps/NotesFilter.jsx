@@ -27,13 +27,6 @@ export class NotesFilter extends React.Component {
       }
 
     render() {
-        return (
-            <section className="keep-filter flex">
-                <h2>filter</h2>
-                <form>
-                    <input placeholder="search note type" type="text" name="type" onChange={this.handleChange}/>
-                </form>
-            </section>
-        )
+        return  <input placeholder="search note type" type="text" name="type" onChange={this.handleChange}/>
     }
 }
