@@ -1,5 +1,6 @@
 import { storage } from '../../../services/storage-service.js'
 import { originalNotes } from './notes.srvice.js'
+import { util } from '../../../services/util-service.js'
 
 
 const KEY = 'notes';
@@ -35,18 +36,22 @@ function removeNote(noteId) {
   return Promise.resolve()
 }
 
-function addNote(note){
-  console.log(note)
+function addNote(note) {
+  note.id = util.makeId(4)
+  console.log('SER', note)
+  gNotes.push(note)
+  storage.saveToStorage(KEY, gNotes)
+  return Promise.resolve()
 }
 
-function editNote(note){
+function editNote(note) {
   console.log('Service', note)
 }
 
-function togglePinedNote(noteId, note){
+function togglePinedNote(noteId, note) {
   const noteIdx = gNotes.findIndex(note => noteId === note.id)
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
-  if(gNotes[noteIdx].isPinned) gNotes.unshift(note)
+  if (gNotes[noteIdx].isPinned) gNotes.unshift(note)
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
 }
@@ -67,6 +72,7 @@ function _updateNote(noteToUpdate) {
 //   _saveNoteToStorage();
 //   return Promise.resolve(car)
 // }
+
 
 function getNoteById(noteId) {
   const note = gNotes.find(note => {

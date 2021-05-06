@@ -25,6 +25,7 @@
 @import url(../../apps/Keep/assets/css/notes-todo.css);
 @import url(../../apps/Keep/assets/css/notes-img.css);
 @import url(../../apps/Keep/assets/css/notes-txt.css);
+@import url(../../apps/Keep/assets/css/add-note.css);
 
 * {
     margin: 0;

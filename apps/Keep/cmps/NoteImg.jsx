@@ -1,4 +1,3 @@
-const { Link } = ReactRouterDOM;
 
 
 export class NoteImg extends React.Component {
@@ -41,14 +40,11 @@ export class NoteImg extends React.Component {
     render(){
         const {style, info} = this.state;
         return (
-
             <div className="img-note flex">
                 <h3>{info.title}</h3>
                 <div className="img-container">
                 {<img src={info.url} />}
                 </div>
-            
-                
             </div>
         )
     

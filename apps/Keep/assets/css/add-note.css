@@ -1,0 +1,24 @@
+.add-note {
+    padding: 1rem;
+    position: relative;
+}
+
+.add-note a {
+    text-decoration: none;
+    color: black;
+    margin-inline-end: 1rem;
+}
+
+.add-note-modal {
+    position: absolute;
+    width: 70%;
+    
+}
+
+.add-note input[name="url"] {
+    padding: 1rem;
+}
+
+.add-note  button {
+    padding: 1rem;
+}
