@@ -16,16 +16,11 @@ export class MissKeep extends React.Component {
     }
 
     loadNotes = () => {
-        keepService.query(this.state.filterBy).then(notes => {
-            this.setState({ notes })
-        })
+        keepService.query(this.state.filterBy).then(notes => this.setState({ notes }))
     }
 
     onPinNote = (noteId, note) => {
-        console.log('KEEP', noteId, note)
-        keepService.togglePinedNote(noteId, note).then(() => {
-            this.loadNotes()
-        })
+        keepService.togglePinedNote(noteId, note).then(() => this.loadNotes())
     }
 
     onEditNote = (noteId) => {
@@ -37,13 +32,11 @@ export class MissKeep extends React.Component {
     }
 
     onRemoveNote = (noteId) => {
-        keepService.removeNote(noteId).then(() => {
-            this.loadNotes()
-        })
+        keepService.removeNote(noteId).then(() => this.loadNotes())
     }
 
     render() {
-        const { notes } = this.state;
+        const { notes } = this.state
         if (!notes) return <h2>no todos.....</h2>
 
         return (
@@ -54,7 +47,7 @@ export class MissKeep extends React.Component {
                 </div>
                 <AddNote onAddNote={this.onAddNote} />
                 <NotesList notes={notes} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
-            </section>
+            </section >
         )
     }
 }
