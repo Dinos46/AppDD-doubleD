@@ -2,7 +2,6 @@ import { storage } from '../../../services/storage-service.js'
 import { originalNotes } from './notes.srvice.js'
 import { util } from '../../../services/util-service.js'
 
-
 const KEY = 'notes';
 
 let gNotes;
@@ -17,7 +16,6 @@ export const keepService = {
 }
 
 function query(filterBy) {
-  console.log('SERVICE',filterBy)
   loadNotesFromStorage()
   if (filterBy) {
     const { type } = filterBy
@@ -36,23 +34,28 @@ function removeNote(noteId) {
   return Promise.resolve()
 }
 
-function addNote(note) {
-  note.id = util.makeId(4)
-  console.log('SERVICE', note)
-  gNotes.push(note)
+function addNote(noteToAdd) {
+  noteToAdd.id = util.makeId(4)
+  const editNote = noteToAdd
+  const dataInput = editNote.info.todos.slice(0, 1)
+  const strInput = dataInput[0].txt.split(' ')
+  const todosToAdd = strInput.map(txt => {
+    return { txt: txt, doneAt: Date.now() }
+  })
+
+  noteToAdd.info.todos = todosToAdd
+  gNotes.push(noteToAdd)
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
 }
 
 function editNote(noteToUpdate) {
   let val
-  console.log('Service edit', noteToUpdate)
   const noteIdx = gNotes.findIndex(note => note.id === noteToUpdate.id)
   switch (noteToUpdate.type) {
     case 'NoteTodos':
       val = noteToUpdate.label
       noteToUpdate.info.label = val
-
       break
     case 'NoteImg':
       val = noteToUpdate.title
@@ -70,14 +73,18 @@ function editNote(noteToUpdate) {
 
 function togglePinedNote(noteId, note) {
   const noteIdx = gNotes.findIndex(note => noteId === note.id)
-  // const curNoteIdx = gNotes.findIndex(note => noteId === note.id)
-  gNotes.splice(noteIdx, 1)
-  gNotes.unshift(note)
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
-  // if(gNotes[noteIdx].isPinned){
-  //   gNotes.splice(curNoteIdx, 1)
-  //   gNotes.push(note)
-  // }
+  console.log(noteIdx)
+  if (gNotes[noteIdx].isPinned) {
+    gNotes.splice(noteIdx, 1)
+    gNotes.unshift(note)
+  } else if (!gNotes[noteIdx].isPinned) {
+    const curNoteIdx = gNotes.findIndex(note => noteId === note.id)
+    console.log(curNoteIdx)
+    gNotes.splice(curNoteIdx, 1)
+    gNotes.push(note)
+  }
+
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
 }

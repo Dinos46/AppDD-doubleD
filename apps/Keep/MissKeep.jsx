@@ -48,11 +48,11 @@ export class MissKeep extends React.Component {
 
         return (
             <section className="miss-keep flex">
-                <dive className="keep-header flex">
+                <div className="keep-header flex">
                     <h2>miss keep</h2>
                     <NotesFilter onSetFilter={this.onSetFilter} />
-                    <AddNote onAddNote={this.onAddNote} />
-                </dive>
+                </div>
+                <AddNote onAddNote={this.onAddNote} />
                 <NotesList notes={notes} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
             </section>
         )

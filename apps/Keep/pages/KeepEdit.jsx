@@ -29,7 +29,6 @@ export class KeepEdit extends React.Component {
   onEditNote = (ev) => {
     ev.preventDefault()
     const { note } = this.state
-    // console.log('ONEDIT', note)
     keepService.editNote(note).then(() => {
       this.props.history.push('/keep')
     })
@@ -45,6 +44,6 @@ export class KeepEdit extends React.Component {
         {(type === 'NoteTodos') && <input onChange={this.handleChange} name="label" type="text" placeholder={info.label} />}
         <button>save</button>
       </form>
-    )
+    ) 
   }
 }

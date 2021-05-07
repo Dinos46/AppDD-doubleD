@@ -32,7 +32,7 @@ export class NoteTodo extends React.Component {
         <ul>
           {info.todos.map((todo, idx) => {
             const date = (todo.doneAt) ? new Date(todo.doneAt).toDateString() : ''
-            return <li key={idx}><span>{todo.txt}</span><span>{date}</span></li>
+            return <li key={idx}><span>{todo.txt }</span> <span>{ date}</span></li>
           })}
         </ul>
       </div>

@@ -1,6 +1,7 @@
-import { NoteTxt } from './NoteTxt.jsx';
-import { NoteTodo } from './NoteTodo.jsx';
-import { NoteImg } from './NoteImg.jsx';
+import { NoteTxt } from './NoteTxt.jsx'
+import { NoteTodo } from './NoteTodo.jsx'
+import { NoteImg } from './NoteImg.jsx'
+import { NoteVideo } from './NoteVideo.jsx'
 import { KeepEditPanel } from './KeepEditPanel.jsx'
 
 export const NotesDynamicCmp = (props) => {
@@ -30,7 +31,14 @@ export const NotesDynamicCmp = (props) => {
           <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
-
+    case 'NoteVideo':
+      console.log('IIIII')
+      return (
+        <div className="note flex">
+          <NoteVideo note={note} />
+          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
+        </div>
+      )
     default:
       return <h2>add some notes</h2>;
   }

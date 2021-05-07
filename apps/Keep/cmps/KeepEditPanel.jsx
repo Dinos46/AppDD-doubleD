@@ -12,10 +12,10 @@ export class KeepEditPanel extends React.Component {
     return (
       <div className="note-editor flex">
         <Link to={`/keep/edit/${note.id}`}>
-          <button type="button">edit</button>
+          <button type="button"><i className="far fa-edit"></i></button>
         </Link>
-        <button onClick={() => { onPinNote(note.id, note) }}>pin</button>
-        <button type="button" onClick={() => { onRemoveNote(note.id) }}>delete</button>
+        <button onClick={() => { onPinNote(note.id, note) }}><i className="fas fa-thumbtack"></i></button>
+        <button type="button" onClick={() => { onRemoveNote(note.id) }}><i className="fas fa-trash-alt"></i></button>
       </div>
     )
   }
