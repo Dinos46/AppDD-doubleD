@@ -3,7 +3,11 @@ export class NoteTxt extends React.Component {
     state = {
         id: null,
         isPinned: null,
+        style: {
+            backgroundColor: '', 
+          },
         info: {
+            title: '',
             txt: ''
         }
     }
@@ -14,6 +18,7 @@ export class NoteTxt extends React.Component {
         this.setNoteInfo(this.props.note)
     }
 
+    
     setNoteId = ({ id }) => {
         this.setState({ id })
     }
@@ -27,10 +32,11 @@ export class NoteTxt extends React.Component {
     }
 
     render() {
-        const { info } = this.state
+        const { info, style } = this.state
         return (
-            <div className="txt-note flex">
-                <h2>{info.txt}</h2>
+            <div className={`txt-note ${style.backgroundColor} flex`}>
+                <h2>{info.title}</h2>
+                <p>{info.txt}</p>
             </div>
         )
     }

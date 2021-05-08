@@ -14,20 +14,18 @@ export class NotesFilter extends React.Component {
                 ...prevState.filterBy,
                 [field]: 'NOTE' + value
             }
-        }))
+        }),()=>{this.onFilter()})
     }
 
-    onFilter = (ev) => {
-        console.log('OOOOOO', this.state.filterBy)
-        ev.preventDefault()
+    onFilter = () => {
         this.props.onSetFilter(this.state.filterBy)
     }
-
+    
     render() {
         return (
-            <form onSubmit={this.onFilter}>
+            <form >
                 <input placeholder="search note type" type="text" name="type" onChange={this.handleChange} />
-                <button> search</button>
+                <button className="search-btn"> <i className="fas fa-search"></i></button>
             </form>
         )
     }

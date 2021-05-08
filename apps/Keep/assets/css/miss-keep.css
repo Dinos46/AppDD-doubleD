@@ -2,18 +2,57 @@
     flex-direction: column;
 }
 
+.miss-keep img {
+    width: 100%;
+}
+
 .keep-header {
-    box-shadow: -11px 3px 10px 3px rgb(141 141 141);
+    background-color: #fff;
+    box-shadow: 8px 6px 13px 0px rgb(218 199 199);
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
-    margin: 1rem 0;
+    margin-block-end: 1rem;
     border-radius: 0.5rem;
 }
 
 .keep-header h2 {
     align-self: center;
-    padding: 1rem; 
+    padding: 1rem;
 }
 
+.keep-header form {
+    width: 50%;
+}
 
+.keep-header form input[name="type"] {
+    outline: none;
+    border: 1px solid rgb(233, 227, 227);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.keep-header form .search-btn {
+    background-color: #fff;
+    position: absolute;
+    right: 13%;
+    top: 7%;
+}
+
+.miss-keep button {
+    min-height: 20px;
+    min-width: 20px;
+    background-color: rgb(233, 220, 220);
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.fas, .far {
+    font-size: 1rem;
+    transition: ease-in-out .2s;
+}
+
+button[type="button"]:hover {
+    color: blueviolet;
+}

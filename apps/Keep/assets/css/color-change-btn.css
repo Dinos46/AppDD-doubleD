@@ -1,0 +1,52 @@
+.btn-color {
+    position: absolute;
+    top: 70%;
+}
+
+.btn-color button {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.btn-color button[name="red"] {
+    background-color: #e90f0f;
+}
+
+.btn-color button[name="green"] {
+    background-color: #43be43;
+}
+
+.btn-color button[name="lightblue"] {
+    background-color: #2c86be;
+}
+
+.btn-color button[name="purple"] {
+    background-color: #ee82ee;
+}
+
+.btn-color button[name="pink"] {
+    background-color: #ac5353;
+}
+
+.red {
+    background-color: #e90f0f;
+}
+
+.green {
+    background-color: #43be43;
+}
+
+.lightblue {
+    background-color: #2c86be;
+}
+
+.purple {
+    background-color: #ee82ee;
+}
+
+.pink {
+    background-color: #ac5353;
+}
