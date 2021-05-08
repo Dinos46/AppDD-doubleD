@@ -13,11 +13,13 @@
 @import url(../../apps/Book/assets/css/book-review-list.css);
 
 /* .....................EMAIL.................................. */
-
+@import url(../../apps/Email/assets/css/email-app.css);
 @import url(../../apps/Email/assets/css/email-list.css);
 @import url(../../apps/Email/assets/css/email-preview.css);
 @import url(../../apps/Email/assets/css/email-sidebar.css);
+@import url(../../apps/Email/assets/css/email-filter.css);
 @import url(../../apps/Email/assets/css/email-add.css);
+@import url(../../apps/Email/assets/css/email-details.css);
 /* ..................................MISSKEEP........................................... */
 @import url(../../apps/Keep/assets/css/miss-keep.css);
 @import url(../../apps/Keep/assets/css/notes-list.css);
@@ -53,8 +55,6 @@ button {
     cursor: pointer;
 }
 
-textarea {
+select {
     outline: none;
-    resize: none;
-    font-family: Arial, Helvetica, sans-serif;
 }

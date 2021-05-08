@@ -1,21 +1,28 @@
-
 import { emailService } from './services/email.service.js'
 import { EmailList } from './cmps/EmailList.jsx'
 import { EmailFilter } from './cmps/EmailFilter.jsx'
 import { EmailSidebarFilter } from './cmps/EmailSidebarFilter.jsx'
 import { EmailAdd } from './cmps/EmailAdd.jsx'
-import { EmailPreview } from './cmps/EmailPreview.jsx'
+import { EmailEdit } from './cmps/EmailEdit.jsx'
 
 export class EmailApp extends React.Component {
 
     state = {
         emails: null,
         filterBy: null,
-        sidebarFilterBy: 'Inbox',
+        sidebarFilterBy: 'inbox',
+        isEmailAddOpen: false,
+        isEmailEditOpen: false,
+        emailToEdit: null
     }
 
     componentDidMount() {
         this.loadEmails()
+    }
+
+    componentWillUnmount() {
+        emailService.closeAllEmails()
+        emailService.saveEmailsToStorage()
     }
 
     loadEmails = () => {
@@ -54,7 +61,15 @@ export class EmailApp extends React.Component {
         this.loadEmails()
     }
 
-    onOpenEmail = (emailId) => {
+    onEditEmail = (emailId) => {
+        emailService.getEmailById(emailId).then(emailToEdit => {
+            this.setState({ emailToEdit }, () => {
+                this.setState({ isEmailEditOpen: true })
+            })
+        })
+    }
+
+    onToggleOpenEmail = (emailId) => {
         emailService.getEmailIdx(emailId).then(emailIdx => {
             emailService.openEmail(emailIdx)
             emailService.saveEmailsToStorage()
@@ -70,21 +85,34 @@ export class EmailApp extends React.Component {
         this.loadEmails()
     }
 
+    onToggleOpenEmailAdd = () => {
+        this.setState({ isEmailAddOpen: !this.state.isEmailAddOpen })
+    }
+
     render() {
         if (!this.state.emails) return <h1 className="reloading"></h1>
 
         return (
 
-            <section className="emailapp-container">
-                <h1>mailApp</h1>
-                <button>Compose</button>
-                <EmailSidebarFilter onSidebarFilter={this.onSidebarFilter} />
+            <section className="email-app">
+
+                <button name="compose-btn" onClick={this.onToggleOpenEmailAdd}>
+                    <i className="fas fa-plus"></i>
+                    Compose
+                </button>
+
                 <EmailFilter onSetFilter={this.onSetFilter} />
+                <EmailSidebarFilter onSidebarFilter={this.onSidebarFilter} />
 
                 <EmailList emails={this.state.emails} onToggleReadEmail={this.onToggleReadEmail}
-                    onRemoveEmail={this.onRemoveEmail} onOpenEmail={this.onOpenEmail} />
+                    onRemoveEmail={this.onRemoveEmail} onToggleOpenEmail={this.onToggleOpenEmail}
+                    onEditEmail={this.onEditEmail} />
 
-                <EmailAdd onAddEmail={this.onAddEmail} />
+                {this.state.isEmailAddOpen && <EmailAdd onAddEmail={this.onAddEmail}
+                    onToggleOpenEmailAdd={this.onToggleOpenEmailAdd} />}
+
+                {this.state.isEmailEditOpen && <EmailEdit emailToEdit={this.state.emailToEdit} />}
+
             </section>
         )
     }

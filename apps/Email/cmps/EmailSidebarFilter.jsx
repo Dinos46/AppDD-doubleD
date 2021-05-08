@@ -2,7 +2,7 @@
 export class EmailSidebarFilter extends React.Component {
 
     state = {
-        filterBy: 'Inbox',
+        filterBy: 'inbox',
     }
 
     handleChange = (ev) => {
@@ -12,15 +12,25 @@ export class EmailSidebarFilter extends React.Component {
     }
 
     render() {
-    
-        return (
 
+        return (
             <section className="sidebar-container">
-                {/* <img src="../assets/img/download(1).jfif" alt=""/> */}
-                <input type="button" value="Inbox" onClick={this.handleChange} />
-                <input type="button" value="Starred" onClick={this.handleChange} />
-                <input type="button" value="Sent" onClick={this.handleChange} />
-                <input type="button" value="Draft" onClick={this.handleChange} />
+                <button value="inbox" onClick={this.handleChange}>
+                    <i className="fas fa-inbox" />
+                    Inbox
+                </button>
+                <button value="starred" onClick={this.handleChange}>
+                    <i className="fas fa-star" />
+                    Starred
+                </button>
+                <button value="sent" onClick={this.handleChange}>
+                    <i className="fas fa-paper-plane" />
+                    Sent
+                </button>
+                <button value="draft" onClick={this.handleChange}>
+                    <i className="fas fa-file-alt" />
+                    Draft
+                </button>
             </section>
         )
     }

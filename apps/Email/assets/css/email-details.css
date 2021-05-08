@@ -1,0 +1,40 @@
+.email-details {
+    border: 1px solid #EFEFEF;
+    font-size: .875rem;
+}
+
+.email-details>* {
+    margin: .5rem .5rem;
+}
+
+.emaildetails-topic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email-details button {
+    width: 3rem;
+    height: 3rem;
+    margin: 0rem .2rem;
+}
+
+.email-details i {
+    color: rgba(27, 27, 27, 0.507) !important;
+}
+
+.emaildetails-details>* {
+    margin-right: .5rem;
+}
+
+.emaildetails-details :first-child {
+    font-family: pop-bold;
+}
+
+.emaildetails-details :not(:first-child) {
+    color: #a8a8a8;
+}
+
+.email-details p {
+    width: 90%;
+}

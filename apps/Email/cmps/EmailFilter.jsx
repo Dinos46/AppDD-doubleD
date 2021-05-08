@@ -7,11 +7,6 @@ export class EmailFilter extends React.Component {
         }
     }
 
-    componentDidMount() {
-
-
-    }
-
     handleChange = (ev) => {
         const field = ev.target.name
         let value;
@@ -43,8 +38,7 @@ export class EmailFilter extends React.Component {
     render() {
 
         return (
-
-            <form className="email-search">
+            <form className="email-filter">
                 <input type="text" name="text" placeholder="search email" onChange={this.handleChange} />
                 <select name="isRead" onChange={this.handleChange}>
                     <option value="all">All</option>

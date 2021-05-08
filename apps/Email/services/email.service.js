@@ -7,10 +7,12 @@ export const emailService = {
     loadEmailsFromStorage,
     saveEmailsToStorage,
     getEmailIdx,
+    getEmailById,
     addEmail,
     removeEmail,
     toggleReadEmail,
-    openEmail
+    openEmail,
+    closeAllEmails
 }
 
 let gEmailsDefault = [
@@ -20,7 +22,7 @@ let gEmailsDefault = [
         name: 'Shakshuka',
         subject: 'Wassap?',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fugit illum porro sequi ratione consequuntur, voluptatum quia, at praesentium voluptas consectetur odio.',
-        status: 'Sent',
+        status: 'sent',
         isRead: false,
         isOpen: false,
         sentAt: 1620154686522
@@ -30,7 +32,7 @@ let gEmailsDefault = [
         name: 'Bamya',
         subject: 'its all good bro?',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fugit illum porro sequi ratione consequuntur, voluptatum quia, at praesentium voluptas consectetur odio.',
-        status: 'Starred',
+        status: 'starred',
         isRead: false,
         isOpen: false,
         sentAt: 1620157686522
@@ -40,10 +42,20 @@ let gEmailsDefault = [
         name: 'Hatzil',
         subject: 'money',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fugit illum porro sequi ratione consequuntur, voluptatum quia, at praesentium voluptas consectetur odio.',
-        status: 'Draft',
+        status: 'draft',
         isRead: false,
         isOpen: false,
         sentAt: 1621154686522
+    },
+    {
+        id: 'as3ada217',
+        name: 'Poor CSS',
+        subject: 'css hove sevel',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fugit illum porro sequi ratione consequuntur, voluptatum quia, at praesentium voluptas consectetur odio.',
+        status: 'inbox',
+        isRead: false,
+        isOpen: false,
+        sentAt: 1621154246522
     }
 ]
 
@@ -63,7 +75,7 @@ function loadEmailsFromStorage() {
 }
 
 function sidebarMainQuery(sidebarFilterBy) {
-    if (sidebarFilterBy !== 'Inbox') {
+    if (sidebarFilterBy !== 'inbox') {
         gEmailFilterdBySidebar = gEmails.filter(email => email.status === sidebarFilterBy)
     } else {
         gEmailFilterdBySidebar = gEmails
@@ -71,7 +83,6 @@ function sidebarMainQuery(sidebarFilterBy) {
 }
 
 function secondQuery(filterBy) {
-
     if (filterBy) {
         const { text, isRead } = filterBy
 
@@ -86,8 +97,13 @@ function secondQuery(filterBy) {
 }
 
 function getEmailIdx(emailId) {
-    var emailIdx = gEmails.findIndex(email => emailId === email.id)
+    const emailIdx = gEmails.findIndex(email => emailId === email.id)
     return Promise.resolve(emailIdx);
+}
+
+function getEmailById(emailId) {
+    const email = gEmails.find(email => emailId === email.id)
+    return Promise.resolve(email)
 }
 
 function toggleReadEmail(emailIdx) {
@@ -95,24 +111,31 @@ function toggleReadEmail(emailIdx) {
 }
 
 function openEmail(emailIdx) {
+    if (!gEmails[emailIdx].isOpen) gEmails[emailIdx].isRead = true
     gEmails[emailIdx].isOpen = !gEmails[emailIdx].isOpen
 }
 
 function addEmail(email) {
-    const { to, cc, bcc, subject, textarea, status, } = email
+    const { to, cc, bcc, subject, body, status, } = email
+
     let newEmail = {
         id: util.makeId(),
         name: to,
         subject: subject,
-        body: textarea,
-        status: 'Sent',
+        body: body,
+        status: status,
         isRead: false,
         isOpen: false,
         sentAt: Date.now()
     }
-    gEmails.push(newEmail)
+
+    gEmails.unshift(newEmail)
 }
 
 function removeEmail(emailIdx) {
     gEmails.splice(emailIdx, 1)
+}
+
+function closeAllEmails() {
+    gEmails.forEach(email => email.isOpen = false)
 }

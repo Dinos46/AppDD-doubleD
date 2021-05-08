@@ -1,32 +1,31 @@
 .email-preview {
-    background-color: rgb(160, 160, 160);
+    background-color: rgb(200, 200, 200);
+    font-size: .875rem;
+    font-family: pop-med;
     display: flex;
     justify-content: space-between;
-    font-size: .875rem;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.email-preview:hover {
+    box-shadow: inset 0 0 3px rgb(27 27 27 / 50%);
 }
 
 .email-preview.read {
-    font-weight: lighter;
-    background-color: rgb(199, 199, 199);
+    font-family: pop-light;
+    background-color: rgb(221, 221, 221);
 }
 
 .email-preview>* {
-    padding: 1% 1%;
+    padding: 1rem 1rem;
 }
 
-.email-preview-name {
-    min-width: 9rem;
-    background-color: green;
+.emailpreview-body-container>* {
+    padding: 0 .2rem;
 }
 
-.email-preview-body {
-    display: flex;
-    justify-content: start;
-    font-size: .75rem;
-}
-
-.email-preview-body>*:not(:first-child) {
-    color: gray;
-    margin: 0 .5rem;
+.emailpreview-name-container i {
+    margin-left: 5px;
+    color: rgba(27, 27, 27, 0.342);
 }
