@@ -5,14 +5,13 @@ import { NoteVideo } from './NoteVideo.jsx'
 import { KeepEditPanel } from './KeepEditPanel.jsx'
 
 export const NotesDynamicCmp = (props) => {
-  const { note, onPinNote, onRemoveNote } = props
-
+  const { note, onPinNote, onRemoveNote, onChangeNoteColor } = props
   switch (note.type) {
     case 'NoteText':
       return (
-        <div className="note flex">
+        <div className={`note flex`}>
           <NoteTxt note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onChangeNoteColor={onChangeNoteColor} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
 
@@ -20,7 +19,7 @@ export const NotesDynamicCmp = (props) => {
       return (
         <div className="note flex">
           <NoteTodo note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onChangeNoteColor={onChangeNoteColor} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
 
@@ -28,17 +27,18 @@ export const NotesDynamicCmp = (props) => {
       return (
         <div className="note flex">
           <NoteImg note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onChangeNoteColor={onChangeNoteColor} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
+
     case 'NoteVideo':
-      console.log('IIIII')
       return (
         <div className="note flex">
           <NoteVideo note={note} />
-          <KeepEditPanel note={note} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
+          <KeepEditPanel note={note} onChangeNoteColor={onChangeNoteColor} onPinNote={onPinNote} onRemoveNote={onRemoveNote} />
         </div>
       )
+
     default:
       return <h2>add some notes</h2>;
   }

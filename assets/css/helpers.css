@@ -12,3 +12,10 @@
     background-repeat: no-repeat;
     margin: 0 auto;
 }
+
+
+.red {background-color: #e90f0f;}
+.green {background-color: #43be43;}
+.lightblue {background-color: #2c86be;}
+.purple {background-color: #ee82ee;}
+.pink {background-color: #ac5353;}

@@ -2,6 +2,7 @@ const { NavLink, Route, Switch } = ReactRouterDOM
 import { ImgInput } from './ImgInput.jsx'
 import { TodoInput } from './TodoInput.jsx'
 import { TxtInput } from './TxtInput.jsx'
+import {VidInput } from './VidInput.jsx'
 
 export function AddNote() {
 
@@ -11,11 +12,13 @@ export function AddNote() {
                 <NavLink to="/keep/add-text"><i className="fas fa-pencil-alt"></i></NavLink>
                 <NavLink to="/keep/add-img"><i className="far fa-image"></i></NavLink>
                 <NavLink to="/keep/add-todo"><i className="far fa-list-alt"></i></NavLink>
+                <NavLink to="/keep/add-video"><i className="fas fa-video"></i></NavLink>
             </nav>
 
             <Switch>
                 <Route component={TxtInput} path="/keep/add-text" />
                 <Route component={TodoInput} path="/keep/add-todo" />
+                <Route component={VidInput} path="/keep/add-video" />
                 <Route component={ImgInput} path="/keep" />
             </Switch>
         </section>

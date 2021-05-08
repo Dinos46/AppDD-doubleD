@@ -4,6 +4,9 @@
 /* App Header */
 @import url(./AppHeader.css);
 
+/* .................HOME PAGE......................  */
+/* @import url(./Home.css); */
+
 /* ....................................BOOKS......................... */
 
 @import url(../../apps/Book/assets/css/book-details.css);
@@ -27,6 +30,8 @@
 @import url(../../apps/Keep/assets/css/notes-txt.css);
 @import url(../../apps/Keep/assets/css/add-note.css);
 @import url(../../apps/Keep/assets/css/keep-edit-panel.css);
+@import url(../../apps/Keep/assets/css/keep-edit-modal.css);
+@import url(../../apps/Keep/assets/css/color-change-btn.css);
 
 * {
     margin: 0;

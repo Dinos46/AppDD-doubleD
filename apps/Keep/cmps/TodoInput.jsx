@@ -14,9 +14,8 @@ export class TodoInput extends React.Component {
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
-        console.log('DDDDD',value)
         this.setState((prevState) => ({
-            ...prevState, info: {...prevState.info, [field]: [{txt: value}]}
+            ...prevState, info: { ...prevState.info, [field]: [{ txt: value }] }
         }));
     };
 
@@ -42,7 +41,6 @@ export class TodoInput extends React.Component {
     }
 
     render() {
-        // console.log(this.state)
         return (
             <form className="note-inputs" onSubmit={this.onAddNote}>
                 <input name="label" onChange={this.handleLabel} type="text" placeholder="enter your title..." />
@@ -53,4 +51,4 @@ export class TodoInput extends React.Component {
             </form>
         )
     }
-} 
+}

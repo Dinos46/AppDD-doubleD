@@ -3,6 +3,9 @@
 export class NoteImg extends React.Component {
     state = {
         id: null,
+        style: {
+            backgroundColor: '',
+          }, 
         info: {
             url: null,
             title: ''
@@ -40,7 +43,7 @@ export class NoteImg extends React.Component {
     render(){
         const {style, info} = this.state;
         return (
-            <div className="img-note flex">
+            <div className={`img-note ${style.backgroundColor} flex`}>
                 <h3>{info.title}</h3>
                 <div className="img-container">
                 {<img src={info.url} />}

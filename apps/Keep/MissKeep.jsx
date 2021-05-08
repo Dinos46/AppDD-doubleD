@@ -3,7 +3,6 @@ import { NotesFilter } from './cmps/NotesFilter.jsx'
 import { NotesList } from './cmps/NotesList.jsx'
 import { AddNote } from './cmps/AddNote.jsx'
 
-
 export class MissKeep extends React.Component {
 
     state = {
@@ -11,8 +10,18 @@ export class MissKeep extends React.Component {
         filterBy: null
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
+            this.loadBook();
+        }
+    }
+
     componentDidMount() {
         this.loadNotes()
+    }
+
+    onChangeNoteColor = (ev, note) => {
+        keepService.setNoteColor(ev.target.name, note).then(() => this.loadNotes())
     }
 
     loadNotes = () => {
@@ -46,7 +55,8 @@ export class MissKeep extends React.Component {
                     <NotesFilter onSetFilter={this.onSetFilter} />
                 </div>
                 <AddNote onAddNote={this.onAddNote} />
-                <NotesList notes={notes} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
+                <NotesList notes={notes} onChangeNoteColor={this.onChangeNoteColor} onPinNote={this.onPinNote} onRemoveNote={this.onRemoveNote} />
+
             </section >
         )
     }

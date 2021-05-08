@@ -12,7 +12,9 @@ export const keepService = {
   removeNote,
   togglePinedNote,
   addNote,
-  editNote
+  editNote,
+  addVideoNote,
+  setNoteColor
 }
 
 function query(filterBy) {
@@ -36,17 +38,34 @@ function removeNote(noteId) {
 
 function addNote(noteToAdd) {
   noteToAdd.id = util.makeId(4)
-  const editNote = noteToAdd
-  const dataInput = editNote.info.todos.slice(0, 1)
-  const strInput = dataInput[0].txt.split(' ')
-  const todosToAdd = strInput.map(txt => {
-    return { txt: txt, doneAt: Date.now() }
-  })
+  if (noteToAdd.type === 'NoteTodos') {
+    const editNote = noteToAdd
+    const dataInput = editNote.info.todos.slice(0, 1)
+    const strInput = dataInput[0].txt.split(' ')
+    const todosToAdd = strInput.map(txt => {
+      return { txt: txt, doneAt: Date.now() }
+    })
+    noteToAdd.info.todos = todosToAdd
+  }
 
-  noteToAdd.info.todos = todosToAdd
   gNotes.push(noteToAdd)
   storage.saveToStorage(KEY, gNotes)
   return Promise.resolve()
+}
+
+function addVideoNote(vidNote) {
+  vidNote.id = util.makeId(4)
+  gNotes.push(vidNote)
+  storage.saveToStorage(KEY, gNotes)
+  return Promise.resolve()
+}
+
+function setNoteColor(color, noteToUpdate) {
+  const curNoteIdx = gNotes.findIndex(note => note.id === noteToUpdate.id)
+  noteToUpdate.style.backgroundColor = color
+  console.log('SERVICE', gNotes[curNoteIdx])
+  storage.saveToStorage(KEY, gNotes)
+  return Promise.resolve(gNotes)
 }
 
 function editNote(noteToUpdate) {
@@ -64,6 +83,10 @@ function editNote(noteToUpdate) {
     case 'NoteText':
       val = noteToUpdate.txt
       noteToUpdate.info.txt = val
+      break
+    case 'NoteVideo':
+      val = noteToUpdate.url
+      noteToUpdate.info.url = val
       break
   }
   gNotes.splice(noteIdx, 1, noteToUpdate)

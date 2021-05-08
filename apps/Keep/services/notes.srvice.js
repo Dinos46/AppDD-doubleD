@@ -4,6 +4,9 @@ export const originalNotes = [
   {
     id: util.makeId(4),
     type: 'NoteText',
+    style: {
+      backgroundColor: '',
+    },
     isPinned: false,
     info: {
       title: 'Fullstack Me Baby!',
@@ -13,27 +16,34 @@ export const originalNotes = [
   {
     id: util.makeId(4),
     type: "NoteVideo",
+    style: {
+      backgroundColor: '',
+    },
     isPinned: false,
     info: {
-      url: 'TAqZb52sgpU'
+      title: 'r',
+      url: 'https://www.dailymotion.com/video/x8024ry'
     }
   },
   {
     id: util.makeId(4),
     type: 'NoteImg',
+    style: {
+      backgroundColor: '',
+    },
     isPinned: false,
     info: {
       url: 'https://q-xx.bstatic.com/xdata/images/hotel/840x460/78809294.jpg?k=cf850d507a9671cf7ff85d598435ea329a28cd4f1b1abc25c1892c91156d36ad&o=',
       title: 'Me playing Mi',
-    },
-    style: {
-      backgroundColor: '#00d',
     },
   },
   {
     id: util.makeId(4),
     type: 'NoteTodos',
     isPinned: false,
+    style: {
+      backgroundColor: '',
+    },
     info: {
       label: 'How was it:',
       todos: [
