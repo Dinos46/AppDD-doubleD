@@ -1,4 +1,4 @@
-.edit-modal{
+.edit-modal {
     position: absolute;
     top: 0;
     width: 100%;
@@ -9,10 +9,34 @@
     align-items: center;
 }
 
+.edit-modal h2 {
+    padding: 1rem;
+}
 
 .edit-modal form input {
+    color: rgb(27, 27, 27);
+    font-family: pop-reg;
     padding: 0.5rem 1rem;
     outline: none;
     border: none;
     border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-inline-end: 1rem;
+}
+
+.edit-modal button {
+    color: rgb(27, 27, 27);
+    font-family: pop-reg;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    outline: none;
+    color: blueviolet;
+    transition: ease-in-out .2s;
+}
+
+.edit-modal button:hover, .edit-modal button:focus {
+    background-color: blueviolet;
+    color: rgb(27, 27, 27);
 }

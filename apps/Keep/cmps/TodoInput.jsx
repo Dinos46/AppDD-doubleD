@@ -5,6 +5,9 @@ export class TodoInput extends React.Component {
     state = {
         id: '',
         type: 'NoteTodos',
+        style: {
+            backgroundColor: ''
+        },
         info: {
             label: '',
             todos: [{ txt: '', doneAt: null }],

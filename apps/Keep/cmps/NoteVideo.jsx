@@ -29,7 +29,9 @@ export class NoteVideo extends React.Component {
     }
 
     setVidUrl = ({ url }, title) => {
-        const embedUrl = url.replace('m/', 'm/embed/')
+        console.log('url', url)
+        const embedUrl = url.replace('/watch?v=', '/')
+        console.log('url', embedUrl)
         this.setState({ info: { url: embedUrl, title } })
     }
 

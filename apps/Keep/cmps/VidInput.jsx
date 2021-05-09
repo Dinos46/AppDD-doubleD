@@ -6,6 +6,9 @@ export class VidInput extends React.Component {
         id: null,
         type: "NoteVideo",
         isPinned: false,
+        style: {
+            backgroundColor: "#00d"
+        },
         info: {
             title: '',
             url: ''
@@ -50,12 +53,11 @@ export class VidInput extends React.Component {
     }
 
     render() {
-        console.log('BBBBB', this.stae)
         return (
             <form className="note-inputs" onSubmit={this.onAddNote}>
-                <input name="url" onChange={this.handleChange} type="text" placeholder="enter url" />
+                <input onChange={this.handelTitle} name="title" type="text" placeholder="enter url" />
                 <p>
-                    <textarea onChange={this.handelTitle} name="title" cols="20" rows="5" placeholder="title..."></textarea>
+                    <textarea name="url" onChange={this.handleChange} cols="20" rows="5" placeholder="title..."></textarea>
                 </p>
                 <button name="add"><i className="fas fa-plus"></i></button>
             </form>

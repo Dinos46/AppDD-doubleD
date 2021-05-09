@@ -6,8 +6,7 @@
 
 .notes-list .note {
     position: relative;
-    background-color: rgb(233, 220, 220);
-    box-shadow: 8px 6px 13px 0px rgb(218 199 199);
+    background-color: #EFEFEF;
     border-radius: 0.5rem;
     padding: 0.5rem;
     flex-direction: column;

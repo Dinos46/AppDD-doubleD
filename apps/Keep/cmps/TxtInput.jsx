@@ -6,12 +6,15 @@ export class TxtInput extends React.Component {
         id: null,
         type: 'NoteText',
         isPinned: null,
+        style: {
+            backgroundColor: ''
+        },
         info: {
             title: '',
             txt: ''
         }
     }
- 
+
     handleChange = ({ target }) => {
         const field = target.name;
         const value = target.value;
