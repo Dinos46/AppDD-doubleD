@@ -1,8 +1,55 @@
 .emailadd-form-container {
     flex-direction: column;
-    max-width: 600px;
+    background-color: #efefef;
+    position: fixed;
+    width: 50%;
+    right: 20vw;
+    bottom: 0;
+    border: rgba(27, 27, 27, 0.850);
 }
 
-.emailadd-form-container > * {
-    padding: 1rem 1rem;
+.emailadd-form-container h4 {
+    color: #efefef;
+    background-color: rgba(27, 27, 27, 0.850);
+    padding: 1rem;
+}
+
+button[name=emailadd-exitbtn] {
+    background-color: blueviolet;
+    color: #efefef;
+    font-family: pop-bold;
+    position: absolute; 
+    width: 57px;
+    height: 57px;
+    top: 0px;
+    right: 0px;
+}
+
+.emailadd-form-container input {
+    font-size: .875rem;
+    padding: 1rem;
+}
+
+.emailadd-controllbtns{
+    display: flex;
+}
+
+.emailadd-controllbtns button{
+    width: 100%;
+    border: 2px solid rgb(27, 27, 27, 0.850);
+}
+
+@media (max-width: 700px) {
+
+    .emailadd-form-container {
+        left: 0;
+        bottom: 0;
+        border: rgba(27, 27, 27, 0.850);
+        width: 100%;
+    }
+
+    .emailadd-controllbtns {
+        display: flex;
+        flex-direction: column;
+    }
 }

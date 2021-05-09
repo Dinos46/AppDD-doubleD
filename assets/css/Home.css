@@ -1,10 +1,11 @@
-
 .home {
-    background-image: linear-gradient(rgba(4, 9, 30, 0.200), 
-    rgba(97, 76, 114, 0.300)), url(../img/hero.jpg);
-min-height: 100vh;
+    height: 75vh;
+    width: 100%;
+    background-image: url(../img/hero.svg);
+    background-position:bottom;
+    background-size: cover;
+    position: relative;
 }
-
 
 .text-box {
     width: 90%;
@@ -15,9 +16,6 @@ min-height: 100vh;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
-
-
 
 .text-box h1 {
     font-family: pop-bold;
@@ -49,7 +47,42 @@ min-height: 100vh;
     transition: 1s;
 }
 
-.home .fa {
-    max-width: 1.5rem;
-    display: none;
+.main-home-container {
+    display: flex;
+    justify-content: center;
+}
+
+.main-home-container>* {
+    margin: 2rem;
+    max-width: 300px;
+}
+
+.main-home-container article >* {
+    margin: 1rem;
+}
+
+.main-home-container p {
+    width: 90%;
+    color: rgb(177, 177, 177);
+    font-size: .875rem;
+}
+
+.main-home-container a {
+    display: inline-block;
+    border: 1px solid blueviolet;
+    background-color: transparent;
+    color: blueviolet;
+    font-size: .875rem;
+    font-weight: bold;
+    padding: .75rem 2.125rem;
+    transition: 0.5s;
+}
+
+.main-home-container a:hover {
+    background-color: blueviolet;
+    color: #fff;
+}
+
+.main-home-container img {
+    max-width: 250px;
 }

@@ -14,9 +14,9 @@ import { KeepEdit } from './apps/Keep/pages/KeepEdit.jsx'
 export function App() {
   return (
     <Router>
-      {/* <header>
+      <header>
         <AppHeader />
-      </header> */}
+      </header>
       <main>
         <Switch>
           <Route component={BookDetails} path='/book/:bookId' />

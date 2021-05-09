@@ -24,7 +24,7 @@ export class EmailAdd extends React.Component {
 
     onSaveToDraft = (ev) => {
         ev.preventDefault()
-        this.setState({ newEmail: { ...this.state.newEmail, status: 'Draft' } }, () => {
+        this.setState({ newEmail: { ...this.state.newEmail, status: 'draft' } }, () => {
             this.props.onAddEmail(this.state.newEmail)
         })
     }
@@ -33,7 +33,8 @@ export class EmailAdd extends React.Component {
 
         return (
             <form className="emailadd-form-container flex" onSubmit={this.onAddEmail}>
-                <button onClick={this.onSaveToDraft} >Save to draft</button>
+                <button name="emailadd-exitbtn" onClick={() => this.props.onToggleOpenEmailAdd()}>X</button>
+                <h4>New messege</h4>
                 <input type="text" name="to" placeholder="To:" onChange={this.handleChange}
                     required
                 />
@@ -51,7 +52,11 @@ export class EmailAdd extends React.Component {
                 <input type="text" name="body" placeholder="Your text:" onChange={this.handleChange}
                     required
                 />
-                <button>Sent</button>
+
+                <div className="emailadd-controllbtns">
+                    <button>Sent</button>
+                    <button onClick={this.onSaveToDraft} >Save to draft</button>
+                </div>
             </form>
         )
     }

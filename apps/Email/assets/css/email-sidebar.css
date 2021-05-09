@@ -14,9 +14,24 @@
 }
 
 .sidebar-container button:focus {
-    box-shadow: 0px 2px 0px blueviolet;
+    box-shadow: inset 0px -3px 0px blueviolet;
 }
 
 .sidebar-container button i {
     margin-right: .2rem;
+}
+
+@media (max-width: 700px) {
+    .sidebar-container {
+        flex-direction: row;
+        text-align: center;
+        grid-area: 3 / 1 / 4 / 3;
+        width: 100vw;
+    }
+    .sidebar-container>*:not(:first-child) {
+        margin-top: 0px;
+    }
+    .sidebar-container button:hover {
+        box-shadow: inset 0px -3px 0px blueviolet;
+    }
 }

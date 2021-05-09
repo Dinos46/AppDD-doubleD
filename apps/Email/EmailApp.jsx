@@ -12,8 +12,6 @@ export class EmailApp extends React.Component {
         filterBy: null,
         sidebarFilterBy: 'inbox',
         isEmailAddOpen: false,
-        isEmailEditOpen: false,
-        emailToEdit: null
     }
 
     componentDidMount() {
@@ -50,6 +48,7 @@ export class EmailApp extends React.Component {
     onAddEmail = (email) => {
         emailService.addEmail(email)
         emailService.saveEmailsToStorage()
+        this.onToggleOpenEmailAdd()
         this.loadEmails()
     }
 
@@ -61,12 +60,12 @@ export class EmailApp extends React.Component {
         this.loadEmails()
     }
 
-    onEditEmail = (emailId) => {
-        emailService.getEmailById(emailId).then(emailToEdit => {
-            this.setState({ emailToEdit }, () => {
-                this.setState({ isEmailEditOpen: true })
-            })
+    onToggleStarEmail = (emailId) => {
+        emailService.getEmailIdx(emailId).then(emailIdx => {
+            emailService.toggleStarEmail(emailIdx)
+            emailService.saveEmailsToStorage()
         })
+        this.loadEmails()
     }
 
     onToggleOpenEmail = (emailId) => {
@@ -97,7 +96,7 @@ export class EmailApp extends React.Component {
             <section className="email-app">
 
                 <button name="compose-btn" onClick={this.onToggleOpenEmailAdd}>
-                    <i className="fas fa-plus"></i>
+                    <i className="fas fa-plus" />
                     Compose
                 </button>
 
@@ -106,7 +105,7 @@ export class EmailApp extends React.Component {
 
                 <EmailList emails={this.state.emails} onToggleReadEmail={this.onToggleReadEmail}
                     onRemoveEmail={this.onRemoveEmail} onToggleOpenEmail={this.onToggleOpenEmail}
-                    onEditEmail={this.onEditEmail} />
+                    onToggleStarEmail={this.onToggleStarEmail} />
 
                 {this.state.isEmailAddOpen && <EmailAdd onAddEmail={this.onAddEmail}
                     onToggleOpenEmailAdd={this.onToggleOpenEmailAdd} />}

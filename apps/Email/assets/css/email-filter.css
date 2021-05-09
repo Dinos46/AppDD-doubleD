@@ -1,11 +1,13 @@
 .email-filter {
+    display: flex;
     grid-area: 2 / 2 / 3 / 3;
     align-items: center;
+    width: 100%;
 }
 
 .email-filter input {
     border: none;
-    width: 14rem;
+    width: 100%;
     font-size: 1rem;
     background-color: #EFEFEF;
     color: blueviolet;
@@ -19,6 +21,7 @@
 
 .email-filter select {
     border: none;
+    width: 100%;
     font-size: 1rem;
     background-color: #EFEFEF;
     color: blueviolet;
@@ -27,4 +30,10 @@
 
 .email-filter select:focus {
     box-shadow: 0 0 2px rgba(27, 27, 27, 0.5);
+}
+
+@media (max-width: 700px) {
+    .email-filter {
+        grid-area: 1 / 1 / 2 / 3;
+    }
 }

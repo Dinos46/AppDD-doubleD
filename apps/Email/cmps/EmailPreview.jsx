@@ -1,10 +1,10 @@
 import { EmailDetails } from './EmailDetails.jsx'
 
-export function EmailPreview({ email, onRemoveEmail, onToggleReadEmail, onToggleOpenEmail, onEditEmail }) {
+export function EmailPreview({ email, onRemoveEmail, onToggleReadEmail, onToggleOpenEmail, onToggleStarEmail }) {
 
     const emailTime = new Date(email.sentAt).toLocaleString('he-IL', { dateStyle: 'short' })
     const emailBody = (email.body).substring(0, 50)
-    const { name, subject, status, isRead } = email
+    const { name, subject, status, isRead, isStarred } = email
 
     return (
         <React.Fragment>
@@ -14,9 +14,9 @@ export function EmailPreview({ email, onRemoveEmail, onToggleReadEmail, onToggle
                     <span>{name}</span>
                     <span>
                         {status === 'inbox' && <i className="fas fa-inbox" />}
-                        {status === 'starred' && <i className="fas fa-star" />}
                         {status === 'sent' && <i className="fas fa-paper-plane" />}
                         {status === 'draft' && <i className="fas fa-file-alt" />}
+                        {isStarred && <i className="fas fa-star" />}
                     </span>
                 </div>
 
@@ -29,7 +29,7 @@ export function EmailPreview({ email, onRemoveEmail, onToggleReadEmail, onToggle
             </section>
 
             {email.isOpen && <EmailDetails email={email} onRemoveEmail={onRemoveEmail}
-                onToggleReadEmail={onToggleReadEmail} onEditEmail={onEditEmail} />}
+                onToggleReadEmail={onToggleReadEmail} onToggleStarEmail={onToggleStarEmail} />}
         </React.Fragment>
     )
 }

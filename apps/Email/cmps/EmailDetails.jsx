@@ -1,5 +1,5 @@
 
-export function EmailDetails({ email, onRemoveEmail, onToggleReadEmail, onEditEmail }) {
+export function EmailDetails({ email, onRemoveEmail, onToggleReadEmail, onToggleStarEmail }) {
 
     const emailTimeLong = new Date(email.sentAt).toLocaleString('he-IL').split(',')
 
@@ -17,8 +17,8 @@ export function EmailDetails({ email, onRemoveEmail, onToggleReadEmail, onEditEm
                         {email.isRead && <i className="fas fa-envelope-open" />}
                         {!email.isRead && <i className="fas fa-envelope" />}
                     </button>
-                    <button onClick={() => onEditEmail(email.id)}>
-                        {email.status === 'Draft' ? <i className="fas fa-pen" /> : <i className="fas fa-reply" />}
+                    <button onClick={() => onToggleStarEmail(email.id)}>
+                        {email.isStarred ? <i className="fas fa-star" /> : <i className="far fa-star" />}
                     </button>
                 </div>
             </div>
