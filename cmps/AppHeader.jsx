@@ -21,7 +21,7 @@ export class _AppHeader extends React.Component {
                 <nav>
                     <NavLink to="/home"><img className="logo" src="./assets/img/logo.svg"/></NavLink>
                     <div className={`nav-links ${this.state.activeClass}`}>
-                        <img onClick={this.disableMenu} className="fa close" src="../assets/img/times-solid.svg" />
+                        <img onClick={this.disableMenu} className="fa close" src="./assets/img/times-solid.svg" />
                         <ul className="clean-list">
                             <li><NavLink to="/">HOME</NavLink></li>
                             <li><NavLink to="/about">ABOUT</NavLink></li>
@@ -30,7 +30,7 @@ export class _AppHeader extends React.Component {
                             <li><NavLink to="/email">EMAIL</NavLink></li>
                         </ul>
                     </div>
-                    <img className={`fa open ${this.state.activeClass}`} onClick={this.activeMenu} src="../assets/img/bars-solid.svg" />
+                    <img className={`fa open ${this.state.activeClass}`} onClick={this.activeMenu} src="./assets/img/bars-solid.svg" />
                 </nav>
             </React.Fragment>
         )
