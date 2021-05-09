@@ -5,7 +5,7 @@ export const originalNotes = [
     id: util.makeId(4),
     type: 'NoteText',
     style: {
-      backgroundColor: '',
+      backgroundColor: 'blue',
     },
     isPinned: false,
     info: {
@@ -21,15 +21,27 @@ export const originalNotes = [
     },
     isPinned: false,
     info: {
-      title: 'r',
-      url: 'https://www.dailymotion.com/video/x8024ry'
+      title: 'best band ever!!!!',
+      url: 'https://www.youtube.com/embed/ODTv9Lt5WYs'
+    }
+  },
+  {
+    id: util.makeId(4),
+    type: "NoteVideo",
+    style: {
+      backgroundColor: '',
+    },
+    isPinned: false,
+    info: {
+      title: 'friken jiren!!!!!',
+      url: 'https://www.youtube.com/embed/C2uRgGDyoI0'
     }
   },
   {
     id: util.makeId(4),
     type: 'NoteImg',
     style: {
-      backgroundColor: '',
+      backgroundColor: 'purple',
     },
     isPinned: false,
     info: {
@@ -39,10 +51,22 @@ export const originalNotes = [
   },
   {
     id: util.makeId(4),
+    type: 'NoteImg',
+    style: {
+      backgroundColor: 'pink',
+    },
+    isPinned: false,
+    info: {
+      url: 'https://media.istockphoto.com/photos/loh-samah-bay-phi-phi-island-picture-id1134958124?k=6&m=1134958124&s=612x612&w=0&h=bnIpjy74sAcgV725V6mrDbeOGKVbMGZtH_gSF4eVEWw=',
+      title: 'Thailand I miss you...',
+    },
+  },
+  {
+    id: util.makeId(4),
     type: 'NoteTodos',
     isPinned: false,
     style: {
-      backgroundColor: '',
+      backgroundColor: 'green',
     },
     info: {
       label: 'How was it:',
@@ -51,5 +75,34 @@ export const originalNotes = [
         { txt: 'Do this', doneAt: 187111111 },
       ],
     },
+  },
+  {
+    id: util.makeId(4),
+    type: 'NoteText',
+    style: {
+      backgroundColor: 'blue',
+    },
+    isPinned: false,
+    info: {
+      title: 'where is my life??',
+      txt: 'coding academy took them...',
+    },
+  },
+  {
+    id: util.makeId(4),
+    type: 'NoteTodos',
+    isPinned: false,
+    style: {
+      backgroundColor: 'red',
+    },
+    info: {
+      label: 'The coding academy way',
+      todos: [
+        { txt: 'learn react', doneAt: null },
+        { txt: 'sleep', doneAt: 187111 },
+        { txt: 'repeat', doneAt: 187111311 },
+      ],
+    },
+
   },
 ];

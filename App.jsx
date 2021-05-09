@@ -28,9 +28,9 @@ export function App() {
           <Route component={Home} path='/' />
         </Switch>
       </main>
-      {/* <footer>
+      <footer>
         <AppFooter />
-      </footer> */}
+      </footer>
     </Router>
   );
 }

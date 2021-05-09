@@ -2,20 +2,31 @@
 @import url(./helpers.css);
 
 /* App Header */
+
 @import url(./AppHeader.css);
 
 /* .................HOME PAGE......................  */
+
 @import url(./Home.css);
+
+/* ...........................ABOUT PAGE....................... */
+
+@import url(./about.css);
+/* ..................FOOTER........................... */
+
+@import url(./footer.css);
 
 /* ....................................BOOKS......................... */
 
-@import url(../../apps/Book/assets/css/book-details.css);
+@import url(../../apps/Book/assets/css/book-app.css);
+@import url(../../apps//Book/assets/css/book-details.css);
 @import url(../../apps/Book/assets/css/book-preview.css);
 @import url(../../apps/Book/assets/css/book-list.css);
 @import url(../../apps/Book/assets/css/book-review-add.css);
 @import url(../../apps/Book/assets/css/book-review-list.css);
 
 /* .....................EMAIL.................................. */
+
 @import url(../../apps/Email/assets/css/email-app.css);
 @import url(../../apps/Email/assets/css/email-list.css);
 @import url(../../apps/Email/assets/css/email-preview.css);
@@ -24,6 +35,7 @@
 @import url(../../apps/Email/assets/css/email-add.css);
 @import url(../../apps/Email/assets/css/email-details.css);
 /* ..................................MISSKEEP........................................... */
+
 @import url(../../apps/Keep/assets/css/miss-keep.css);
 @import url(../../apps/Keep/assets/css/notes-list.css);
 @import url(../../apps/Keep/assets/css/notes-preview.css);
@@ -32,8 +44,8 @@
 @import url(../../apps/Keep/assets/css/notes-txt.css);
 @import url(../../apps/Keep/assets/css/add-note.css);
 @import url(../../apps/Keep/assets/css/keep-edit-panel.css);
-@import url(../../apps/Keep/assets/css/keep-edit-modal.css);
 @import url(../../apps/Keep/assets/css/color-change-btn.css);
+@import url(../../apps/Keep/assets/css/keep-edit-modal.css);
 
 * {
     margin: 0;

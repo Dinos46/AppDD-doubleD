@@ -1,11 +1,18 @@
 .note-editor {
     justify-content: space-around;
-    border-block-start: 1px solid rgb(218, 199, 199);
+    border-block-start: 2px solid blueviolet;
     padding-block-start: 0.5rem;
+    color: rgb(27, 27, 27);
 }
 
 .note-editor button[name="pin"] {
     position: absolute;
     top: 5%;
     right: 5%;
+}
+
+.note-editor button {
+    color: rgb(27, 27, 27);
+    background-color: rgba(239, 239, 239, 0);
+    font-family: pop-reg;
 }

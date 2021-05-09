@@ -97,13 +97,11 @@ function editNote(noteToUpdate) {
 function togglePinedNote(noteId, note) {
   const noteIdx = gNotes.findIndex(note => noteId === note.id)
   gNotes[noteIdx].isPinned = !gNotes[noteIdx].isPinned
-  console.log(noteIdx)
   if (gNotes[noteIdx].isPinned) {
     gNotes.splice(noteIdx, 1)
     gNotes.unshift(note)
   } else if (!gNotes[noteIdx].isPinned) {
     const curNoteIdx = gNotes.findIndex(note => noteId === note.id)
-    console.log(curNoteIdx)
     gNotes.splice(curNoteIdx, 1)
     gNotes.push(note)
   }
