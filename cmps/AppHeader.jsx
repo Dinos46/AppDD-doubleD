@@ -24,7 +24,7 @@ export class _AppHeader extends React.Component {
                         <img onClick={this.disableMenu} className="fa close" src="../assets/img/times-solid.svg" />
                         <ul className="clean-list">
                             <li><NavLink to="/">HOME</NavLink></li>
-                            <li><NavLink>ABOUT</NavLink></li>
+                            <li><NavLink to="/about">ABOUT</NavLink></li>
                             <li><NavLink to="/book">BOOKSTORE</NavLink></li>
                             <li><NavLink to="/keep">MISSKEEP</NavLink></li>
                             <li><NavLink to="/email">EMAIL</NavLink></li>

@@ -5,6 +5,7 @@
     justify-content: flex-start;
     gap: .75rem;
     color: rgb(27, 27, 27);
+    margin-bottom: 1rem;
 }
 
 .email-app h1::selection, h2::selection, span::selection, p::selection {
