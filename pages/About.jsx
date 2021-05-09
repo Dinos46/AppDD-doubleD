@@ -9,7 +9,6 @@ export function About() {
                     Din is 31 years old and he has CO-founded the foundation tha has no founders...<br />
                     together they built this app.
             </p>
-
                 <section className="about-img flex">
                     <section className="daniel">
                         <h3>Daniel Sheetrit</h3>
@@ -28,7 +27,4 @@ export function About() {
             </section>
         </div>
     )
-
-
-
 }

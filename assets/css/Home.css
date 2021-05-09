@@ -87,3 +87,11 @@
     max-width: 250px;
     max-height: 125px;
 }
+
+@media (max-width: 800px) {
+    .main-home-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

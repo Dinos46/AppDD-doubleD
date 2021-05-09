@@ -19,7 +19,7 @@ export class _AppHeader extends React.Component {
         return (
             <React.Fragment>
                 <nav>
-                    <NavLink><img className="logo" src="../assets/img/logo.svg" /></NavLink>
+                    <NavLink><img className="logo" src="./assets/img/logo.svg"/></NavLink>
                     <div className={`nav-links ${this.state.activeClass}`}>
                         <img onClick={this.disableMenu} className="fa close" src="../assets/img/times-solid.svg" />
                         <ul className="clean-list">
